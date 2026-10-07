@@ -773,6 +773,281 @@
     <section id="izracun" class="view active">
       <div class="layout">
         <div class="left-column">
+          <!-- SPREMENLJIVE VREDNOSTI -->
+          <div class="card">
+            <div class="section-label">
+              Spremenljive vrednosti
+            </div>
+
+            <div class="card-header">
+              <h2>Ta izdelek</h2>
+              <span class="pill">Začni pri nič</span>
+            </div>
+
+            <div class="grid">
+              <div class="full">
+                <label for="imeIzdelka">
+                  Ime izdelka ali projekta
+                </label>
+
+                <input
+                  id="imeIzdelka"
+                  type="text"
+                  autocomplete="off"
+                  value=""
+                  placeholder="Vpiši ime izdelka"
+                >
+              </div>
+
+              <div>
+                <label for="casTiskanja">
+                  Čas tiskanja enega kosa
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="casTiskanja"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                  >
+                  <span>h</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="masa">
+                  Masa enega kosa
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="masa"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                  >
+                  <span>kg</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="vrstaFilamenta">
+                  Vrsta filamenta
+                </label>
+
+                <select id="vrstaFilamenta">
+                  <option value="">Izberi filament</option>
+                  <option value="PLA">PLA</option>
+                  <option value="PETG">PETG</option>
+                  <option value="PCTG">PCTG</option>
+                  <option value="ABS">ABS</option>
+                  <option value="TPU">TPU</option>
+                  <option value="Drugo">Drugo</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cenaFilamenta">
+                  Cena filamenta
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="cenaFilamenta"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                  >
+                  <span class="enota-valuta">EUR/kg</span>
+                </div>
+              </div>
+
+              <div class="full">
+                <label>
+                  Ostali material na kos
+                </label>
+
+                <div class="material-row">
+                  <input
+                    id="opis1"
+                    type="text"
+                    autocomplete="off"
+                    value=""
+                    placeholder="Opis materiala"
+                    aria-label="Opis materiala 1"
+                  >
+
+                  <input
+                    id="material1"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                    placeholder="EUR"
+                    aria-label="Cena materiala 1"
+                  >
+                </div>
+
+                <div class="material-row">
+                  <input
+                    id="opis2"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Opis materiala"
+                    aria-label="Opis materiala 2"
+                  >
+
+                  <input
+                    id="material2"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                    placeholder="EUR"
+                    aria-label="Cena materiala 2"
+                  >
+                </div>
+
+                <div class="material-row">
+                  <input
+                    id="opis3"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Opis materiala"
+                    aria-label="Opis materiala 3"
+                  >
+
+                  <input
+                    id="material3"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                    placeholder="EUR"
+                    aria-label="Cena materiala 3"
+                  >
+                </div>
+              </div>
+
+              <div>
+                <label for="steviloIzdelkov">
+                  Število izdelkov
+                </label>
+
+                <div class="stepper">
+                  <button
+                    type="button"
+                    aria-label="Manj"
+                    onclick="spremeniStevilo(-1)"
+                  >
+                    −
+                  </button>
+
+                  <!-- type="text" + inputmode: na iPhonu type="number" nima številčne tipkovnice in dovoli črke -->
+                  <input
+                    id="steviloIzdelkov"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    autocomplete="off"
+                    value="0"
+                  >
+
+                  <button
+                    type="button"
+                    aria-label="Več"
+                    onclick="spremeniStevilo(1)"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label>
+                  Modeliranje
+                </label>
+
+                <div class="toggle">
+                  <button
+                    id="modeliranjeDa"
+                    type="button"
+                    onclick="nastaviModeliranje(true)"
+                  >
+                    Da
+                  </button>
+
+                  <button
+                    id="modeliranjeNe"
+                    class="active"
+                    type="button"
+                    onclick="nastaviModeliranje(false)"
+                  >
+                    Ne
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label for="ureModeliranja">
+                  Število ur modeliranja
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="ureModeliranja"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                  >
+                  <span>h</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="nacinObracuna">
+                  Način obračuna
+                </label>
+
+                <select id="nacinObracuna">
+                  <option value="skupaj">
+                    Enkrat za celotno naročilo
+                  </option>
+
+                  <option value="kos">
+                    Za vsak kos posebej
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button
+                class="primary-button"
+                type="button"
+                onclick="izracunaj()"
+              >
+                Izračunaj
+              </button>
+
+              <button
+                class="secondary-button"
+                type="button"
+                onclick="ponastaviVnose()"
+              >
+                Ponastavi podatke
+              </button>
+            </div>
+
+            <div id="errorBox" class="error-box"></div>
+          </div>
+
+          <!-- FIKSNE VREDNOSTI -->
           <div class="card">
             <div class="section-label">
               Fiksne vrednosti
@@ -872,275 +1147,6 @@
             </div>
           </div>
 
-          <div class="card">
-            <div class="section-label">
-              Spremenljive vrednosti
-            </div>
-
-            <div class="card-header">
-              <h2>Ta izdelek</h2>
-              <span class="pill">Vnesi svoje podatke</span>
-            </div>
-
-            <div class="grid">
-              <div class="full">
-                <label for="imeIzdelka">
-                  Ime izdelka ali projekta
-                </label>
-
-                <input
-                  id="imeIzdelka"
-                  type="text"
-                  autocomplete="off"
-                  value="Držalo za telefon"
-                >
-              </div>
-
-              <div>
-                <label for="casTiskanja">
-                  Čas tiskanja enega kosa
-                </label>
-
-                <div class="input-unit">
-                  <input
-                    id="casTiskanja"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    value="2,5"
-                  >
-                  <span>h</span>
-                </div>
-              </div>
-
-              <div>
-                <label for="masa">
-                  Masa enega kosa
-                </label>
-
-                <div class="input-unit">
-                  <input
-                    id="masa"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    value="0,045"
-                  >
-                  <span>kg</span>
-                </div>
-              </div>
-
-              <div>
-                <label for="vrstaFilamenta">
-                  Vrsta filamenta
-                </label>
-
-                <select id="vrstaFilamenta">
-                  <option value="PLA">PLA</option>
-                  <option value="PETG">PETG</option>
-                  <option value="ABS">ABS</option>
-                  <option value="TPU">TPU</option>
-                  <option value="Drugo">Drugo</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="cenaFilamenta">
-                  Cena filamenta
-                </label>
-
-                <div class="input-unit">
-                  <input
-                    id="cenaFilamenta"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    value="20"
-                  >
-                  <span class="enota-valuta">EUR/kg</span>
-                </div>
-              </div>
-
-              <div class="full">
-                <label>
-                  Ostali material na kos
-                </label>
-
-                <div class="material-row">
-                  <input
-                    id="opis1"
-                    type="text"
-                    autocomplete="off"
-                    value="Magneti"
-                    placeholder="Opis materiala"
-                    aria-label="Opis materiala 1"
-                  >
-
-                  <input
-                    id="material1"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    value="1,5"
-                    placeholder="EUR"
-                    aria-label="Cena materiala 1"
-                  >
-                </div>
-
-                <div class="material-row">
-                  <input
-                    id="opis2"
-                    type="text"
-                    autocomplete="off"
-                    placeholder="Opis materiala"
-                    aria-label="Opis materiala 2"
-                  >
-
-                  <input
-                    id="material2"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    value="0"
-                    placeholder="EUR"
-                    aria-label="Cena materiala 2"
-                  >
-                </div>
-
-                <div class="material-row">
-                  <input
-                    id="opis3"
-                    type="text"
-                    autocomplete="off"
-                    placeholder="Opis materiala"
-                    aria-label="Opis materiala 3"
-                  >
-
-                  <input
-                    id="material3"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    value="0"
-                    placeholder="EUR"
-                    aria-label="Cena materiala 3"
-                  >
-                </div>
-              </div>
-
-              <div>
-                <label for="steviloIzdelkov">
-                  Število izdelkov
-                </label>
-
-                <div class="stepper">
-                  <button
-                    type="button"
-                    aria-label="Manj"
-                    onclick="spremeniStevilo(-1)"
-                  >
-                    −
-                  </button>
-
-                  <!-- type="text" + inputmode: na iPhonu type="number" nima številčne tipkovnice in dovoli črke -->
-                  <input
-                    id="steviloIzdelkov"
-                    type="text"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
-                    autocomplete="off"
-                    value="4"
-                  >
-
-                  <button
-                    type="button"
-                    aria-label="Več"
-                    onclick="spremeniStevilo(1)"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label>
-                  Modeliranje
-                </label>
-
-                <div class="toggle">
-                  <button
-                    id="modeliranjeDa"
-                    class="active"
-                    type="button"
-                    onclick="nastaviModeliranje(true)"
-                  >
-                    Da
-                  </button>
-
-                  <button
-                    id="modeliranjeNe"
-                    type="button"
-                    onclick="nastaviModeliranje(false)"
-                  >
-                    Ne
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label for="ureModeliranja">
-                  Število ur modeliranja
-                </label>
-
-                <div class="input-unit">
-                  <input
-                    id="ureModeliranja"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    value="1,5"
-                  >
-                  <span>h</span>
-                </div>
-              </div>
-
-              <div>
-                <label for="nacinObracuna">
-                  Način obračuna
-                </label>
-
-                <select id="nacinObracuna">
-                  <option value="skupaj">
-                    Enkrat za celotno naročilo
-                  </option>
-
-                  <option value="kos">
-                    Za vsak kos posebej
-                  </option>
-                </select>
-              </div>
-            </div>
-
-            <div class="button-row">
-              <button
-                class="primary-button"
-                type="button"
-                onclick="izracunaj()"
-              >
-                Izračunaj
-              </button>
-
-              <button
-                class="secondary-button"
-                type="button"
-                onclick="ponastaviVnose()"
-              >
-                Ponastavi
-              </button>
-            </div>
-
-            <div id="errorBox" class="error-box"></div>
-          </div>
         </div>
 
         <div>
@@ -1152,7 +1158,7 @@
                 </div>
 
                 <h2 id="rezultatIme">
-                  Držalo za telefon
+                  Nov izdelek
                 </h2>
               </div>
 
@@ -1235,7 +1241,7 @@
 
             <div class="result-note">
               <span id="rezOpomba">
-                Število izdelkov: 4.
+                Vnesi število izdelkov za izračun.
               </span>
             </div>
           </div>
@@ -1482,7 +1488,7 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
   </script>
 
   <script>
-    let modeliranjeVkljuceno = true;
+    let modeliranjeVkljuceno = false;
     let trenutniIzracun = null;
     let statusTimer = null;
 
@@ -1512,19 +1518,19 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
       cenaElektrike: "0,17",
       cenaModeliranja: "5",
       profit: "30",
-      imeIzdelka: "Držalo za telefon",
-      casTiskanja: "2,5",
-      masa: "0,045",
-      vrstaFilamenta: "PLA",
-      cenaFilamenta: "20",
-      opis1: "Magneti",
-      material1: "1,5",
+      imeIzdelka: "",
+      casTiskanja: "0",
+      masa: "0",
+      vrstaFilamenta: "",
+      cenaFilamenta: "0",
+      opis1: "",
+      material1: "0",
       opis2: "",
       material2: "0",
       opis3: "",
       material3: "0",
-      steviloIzdelkov: "4",
-      ureModeliranja: "1,5",
+      steviloIzdelkov: "0",
+      ureModeliranja: "0",
       nacinObracuna: "skupaj"
     };
 
@@ -1680,12 +1686,33 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
         document.getElementById("steviloIzdelkov");
 
       const trenutno =
-        Math.max(1, parseInt(polje.value || "1", 10) || 1);
+        parseInt(polje.value || "0", 10) || 0;
 
       polje.value =
-        Math.max(1, trenutno + sprememba);
+        Math.max(0, trenutno + sprememba);
 
       izracunaj();
+    }
+
+    function prikaziPrazneRezultate() {
+      [
+        "rezElektrikaKos",
+        "rezFilamentKos",
+        "rezMaterialKos",
+        "rezTiskanjeKos",
+        "rezModeliranje",
+        "rezNetoKos",
+        "rezCenaKos",
+        "rezNetoSkupaj",
+        "rezProfit",
+        "rezSkupaj"
+      ].forEach(function(id) {
+        document.getElementById(id).textContent = denar(0);
+      });
+
+      document.getElementById("rezOpomba")
+        .textContent =
+        "Vnesi število izdelkov za izračun.";
     }
 
     function preveriNegativneVrednosti() {
@@ -1727,13 +1754,22 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
       const ime =
         document.getElementById("imeIzdelka")
           .value
-          .trim() || "Neimenovan izdelek";
+          .trim() || "Nov izdelek";
 
       const steviloIzdelkov =
         Math.max(
-          1,
+          0,
           Math.ceil(stevilo("steviloIzdelkov"))
         );
+
+      document.getElementById("rezultatIme")
+        .textContent = ime;
+
+      if (steviloIzdelkov === 0) {
+        trenutniIzracun = null;
+        prikaziPrazneRezultate();
+        return null;
+      }
 
       const porabaElektrike =
         stevilo("porabaElektrike");
@@ -1845,9 +1881,6 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
         datum: new Date().toISOString()
       };
 
-      document.getElementById("rezultatIme")
-        .textContent = ime;
-
       document.getElementById("rezElektrikaKos")
         .textContent = denar(elektrikaKos);
 
@@ -1909,12 +1942,23 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
       });
 
       nastaviModeliranje(
-        podatki.modeliranjeVkljuceno !== false
+        podatki.modeliranjeVkljuceno === true
       );
     }
 
-    function shraniIzracun() {
+    // Ko izračuna ni (npr. število izdelkov je 0), povej zakaj
+    function izracunAliOpozorilo() {
       const izracun = izracunaj();
+
+      if (!izracun && document.getElementById("errorBox").style.display !== "block") {
+        prikaziSporocilo("Najprej vnesi število izdelkov.");
+      }
+
+      return izracun;
+    }
+
+    function shraniIzracun() {
+      const izracun = izracunAliOpozorilo();
 
       if (!izracun) {
         return;
@@ -2162,15 +2206,22 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
     }
 
     function ponastaviVnose() {
+      // Fiksne vrednosti (elektrika, modeliranje, profit) ostanejo
       Object.keys(privzeteVrednosti)
+        .filter(function(id) {
+          return ["porabaElektrike", "cenaElektrike", "cenaModeliranja", "profit"].indexOf(id) === -1;
+        })
         .forEach(function(id) {
           document.getElementById(id).value =
             privzeteVrednosti[id];
         });
 
-      naloziShranjeneNastavitve();
-      nastaviModeliranje(true);
-      izracunaj();
+      nastaviModeliranje(false);
+      prikaziPrazneRezultate();
+
+      prikaziSporocilo(
+        "Spremenljive vrednosti so ponastavljene."
+      );
     }
 
     /* ---------- Shranjevanje datotek (telefon in računalnik) ---------- */
@@ -2276,7 +2327,7 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
     function izvoziVExcel() {
-      const izracun = izracunaj();
+      const izracun = izracunAliOpozorilo();
 
       if (!izracun) {
         return;
@@ -2528,7 +2579,7 @@ if (typeof module !== "undefined") module.exports = { XlsxWriter, XLSX_STYLE };
     } catch (napaka) {}
 
     naloziShranjeneNastavitve();
-    izracunaj();
+    nastaviModeliranje(false);
     prikaziZgodovino();
   </script>
   <script>

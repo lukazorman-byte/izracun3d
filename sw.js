@@ -1,5 +1,5 @@
 // Service worker: aplikacija deluje tudi brez interneta.
-const CACHE = "izracun3d-preprosto-69b42134dc";
+const CACHE = "izracun3d-preprosto-ad32b38198";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-maskable-512.png", "apple-touch-icon.png", "favicon-32.png"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
