@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#087f69">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Izračun 3D">
+  <!--@LINKS@-->
+
+  <title>Izračun stroškov 3D-tiska</title>
+
+  <style>
+    :root {
+      --zelena-temna: #0d2923;
+      --zelena: #087f69;
+      --zelena-svetla: #78dfc0;
+      --ozadje: #eef3f1;
+      --bela: #ffffff;
+      --obroba: #d5dedb;
+      --besedilo: #1d2b28;
+      --siva: #6b7975;
+      --napaka: #b84c42;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(40, 70, 62, 0.035) 0,
+          rgba(40, 70, 62, 0.035) 1px,
+          transparent 1px,
+          transparent 6px
+        ),
+        var(--ozadje);
+      color: var(--besedilo);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button,
+    select {
+      touch-action: manipulation;
+    }
+
+    .app {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 40px;
+    }
+
+    header {
+      border-bottom: 1px solid #d2dcd9;
+      padding-bottom: 16px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    header p {
+      margin: 8px 0 14px;
+      color: var(--siva);
+      font-size: 15px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      border: 1px solid var(--obroba);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--siva);
+      font-size: 12px;
+    }
+
+    .status span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6e817b;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0;
+      border-bottom: 1px solid #d2dcd9;
+    }
+
+    .tab {
+      min-height: 46px;
+      border: 0;
+      background: transparent;
+      padding: 13px 30px;
+      border-radius: 12px 12px 0 0;
+      color: #63716d;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: white;
+      color: var(--besedilo);
+      border: 1px solid var(--obroba);
+      border-bottom-color: white;
+      margin-bottom: -1px;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--bela);
+      border: 1px solid var(--obroba);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(20, 40, 35, 0.025);
+    }
+
+    .section-label {
+      margin-bottom: 7px;
+      color: #62716d;
+      font-weight: bold;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card h2 {
+      margin: 0 0 16px;
+      font-size: 21px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pill {
+      background: #dff3ec;
+      color: #117b67;
+      border-radius: 20px;
+      padding: 5px 9px;
+      font-weight: bold;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px 10px;
+    }
+
+    .grid > div {
+      min-width: 0;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* 16 px: manj kot to in iPhone ob tapu na polje poveča celo stran */
+    input,
+    select {
+      width: 100%;
+      min-width: 0;
+      min-height: 46px;
+      padding: 11px 13px;
+      border: 1px solid #d2dcda;
+      border-radius: 10px;
+      background: #f6f8f7;
+      color: var(--besedilo);
+      font-size: 16px;
+    }
+
+    select {
+      -webkit-appearance: none;
+      appearance: none;
+      padding-right: 36px;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--siva) 50%),
+        linear-gradient(135deg, var(--siva) 50%, transparent 50%);
+      background-position:
+        calc(100% - 19px) 50%,
+        calc(100% - 14px) 50%;
+      background-size: 5px 5px;
+      background-repeat: no-repeat;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--zelena);
+      box-shadow: 0 0 0 3px rgba(8, 127, 105, 0.12);
+    }
+
+    .input-unit {
+      position: relative;
+    }
+
+    .input-unit input {
+      padding-right: 75px;
+    }
+
+    .input-unit span {
+      position: absolute;
+      top: 50%;
+      right: 13px;
+      transform: translateY(-50%);
+      color: var(--siva);
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    .material-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 128px;
+      gap: 9px;
+      margin-bottom: 9px;
+    }
+
+    .stepper {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) 46px;
+      gap: 7px;
+    }
+
+    .stepper button {
+      min-height: 46px;
+      border: 1px solid var(--obroba);
+      background: white;
+      border-radius: 10px;
+      color: var(--besedilo);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .stepper input {
+      text-align: center;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 4px;
+      border: 1px solid var(--obroba);
+      background: #f6f8f7;
+      border-radius: 10px;
+    }
+
+    .toggle button {
+      flex: 1;
+      height: 36px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--siva);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .toggle button.active {
+      background: var(--zelena);
+      color: white;
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .danger-button {
+      min-height: 46px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .primary-button {
+      border: 1px solid var(--zelena);
+      background: var(--zelena);
+      color: white;
+    }
+
+    .primary-button:hover {
+      background: #066b59;
+    }
+
+    .secondary-button {
+      border: 1px solid var(--obroba);
+      background: white;
+      color: var(--besedilo);
+    }
+
+    .danger-button {
+      border: 1px solid #e2c1bd;
+      background: white;
+      color: var(--napaka);
+    }
+
+    .results-card {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 18px;
+      background: var(--zelena-temna);
+      color: white;
+      border-radius: 14px;
+      padding: 17px;
+      box-shadow: 0 8px 24px rgba(8, 35, 29, 0.15);
+    }
+
+    .results-card .section-label {
+      color: #a9c5bd;
+    }
+
+    .results-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .results-title h2 {
+      margin: 0 0 15px;
+      color: white;
+      overflow-wrap: anywhere;
+    }
+
+    .result-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 7px 0;
+      color: #afc1bc;
+      font-size: 14px;
+    }
+
+    .result-line strong {
+      color: white;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .result-separator {
+      margin: 8px 0;
+      border-top: 1px dashed rgba(190, 220, 211, 0.25);
+    }
+
+    .result-line.main span,
+    .result-line.main strong {
+      color: white;
+      font-weight: bold;
+    }
+
+    .grand-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 15px;
+      padding-top: 17px;
+      border-top: 1px solid rgba(190, 220, 211, 0.25);
+      color: #afc1bc;
+      font-weight: bold;
+    }
+
+    .grand-total strong {
+      color: var(--zelena-svetla);
+      font-size: 34px;
+      white-space: nowrap;
+    }
+
+    .result-note {
+      margin-top: 13px;
+      color: #a5b8b2;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .right-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .right-actions .save {
+      grid-column: 1 / -1;
+    }
+
+    .history-title,
+    .settings-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .history-title h2,
+    .settings-title h2 {
+      margin: 0;
+    }
+
+    .history-item {
+      margin-bottom: 12px;
+      padding: 16px;
+      border: 1px solid var(--obroba);
+      border-radius: 13px;
+      background: white;
+    }
+
+    .history-item h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      overflow-wrap: anywhere;
+    }
+
+    .history-meta {
+      margin-bottom: 13px;
+      color: var(--siva);
+      font-size: 13px;
+    }
+
+    .history-values {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: bold;
+    }
+
+    .history-values span:last-child {
+      color: var(--zelena);
+    }
+
+    .history-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 13px;
+    }
+
+    .empty {
+      padding: 30px;
+      border: 1px dashed var(--obroba);
+      border-radius: 12px;
+      color: var(--siva);
+      text-align: center;
+    }
+
+    .error-box {
+      display: none;
+      margin-top: 13px;
+      padding: 13px;
+      border-radius: 10px;
+      background: #f9e3e0;
+      color: #853b34;
+      font-size: 14px;
+    }
+
+    .dialog-ozadje {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .dialog {
+      width: 100%;
+      max-width: 420px;
+      padding: 18px;
+      border-radius: 14px;
+      background: white;
+      color: var(--besedilo);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .dialog p {
+      margin: 0 0 16px;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .dialog .button-row {
+      margin-top: 0;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 850px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .results-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .app {
+        width: 100%;
+        margin: 0;
+        padding: 12px 10px 90px;
+        padding-left: calc(10px + env(safe-area-inset-left, 0px));
+        padding-right: calc(10px + env(safe-area-inset-right, 0px));
+        padding-top: calc(12px + env(safe-area-inset-top, 0px));
+        padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+      }
+
+      header {
+        padding: 5px 4px 14px;
+      }
+
+      header h1 {
+        font-size: 27px;
+        line-height: 1.1;
+      }
+
+      header p {
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .tabs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+        margin: 12px 0;
+      }
+
+      .tab {
+        width: 100%;
+        padding: 10px 4px;
+        font-size: 13px;
+      }
+
+      .layout {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .layout > div {
+        width: 100%;
+      }
+
+      .left-column {
+        width: 100%;
+        gap: 12px;
+      }
+
+      .card,
+      .results-card {
+        width: 100%;
+        border-radius: 12px;
+        padding: 14px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .card h2 {
+        font-size: 20px;
+      }
+
+      .card-header {
+        align-items: flex-start;
+      }
+
+      .card-header h2 {
+        max-width: 65%;
+      }
+
+      .pill {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .button-row,
+      .right-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .right-actions .save {
+        grid-column: auto;
+      }
+
+      .primary-button,
+      .secondary-button,
+      .danger-button {
+        width: 100%;
+        min-height: 48px;
+      }
+
+      .result-line {
+        align-items: flex-start;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .result-line span {
+        max-width: 62%;
+      }
+
+      .result-line strong {
+        text-align: right;
+        font-size: 13px;
+      }
+
+      .grand-total {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .grand-total strong {
+        font-size: 30px;
+      }
+
+      .history-title,
+      .settings-title {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .history-title button,
+      .settings-title button {
+        width: 100%;
+      }
+
+      .history-values {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .app {
+        padding-left: calc(7px + env(safe-area-inset-left, 0px));
+        padding-right: calc(7px + env(safe-area-inset-right, 0px));
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      .tab {
+        font-size: 11px;
+      }
+
+      .material-row {
+        grid-template-columns: minmax(0, 1fr) 90px;
+      }
+
+      .grand-total strong {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+    <header>
+      <h1>Izračun stroškov 3D-tiska</h1>
+      <p>Elektrika, filament, material in modeliranje za en kos ali celo naročilo.</p>
+
+      <div class="status" role="status">
+        <span></span>
+        Podatki: v tej napravi
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" type="button" data-view="izracun">
+        Izračun
+      </button>
+
+      <button class="tab" type="button" data-view="zgodovina">
+        Zgodovina
+      </button>
+
+      <button class="tab" type="button" data-view="nastavitve">
+        Nastavitve
+      </button>
+    </nav>
+
+    <section id="izracun" class="view active">
+      <div class="layout">
+        <div class="left-column">
+          <div class="card">
+            <div class="section-label">
+              Fiksne vrednosti
+            </div>
+
+            <div class="card-header">
+              <h2>Cene in profit</h2>
+              <span class="pill">Spreminjaj po potrebi</span>
+            </div>
+
+            <div class="grid">
+              <div>
+                <label for="porabaElektrike">
+                  Poraba elektrike v eni uri
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="porabaElektrike"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="2"
+                  >
+                  <span>kWh</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="cenaElektrike">
+                  Cena elektrike
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="cenaElektrike"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0,17"
+                  >
+                  <span class="enota-valuta">EUR/kWh</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="cenaModeliranja">
+                  Cena modeliranja
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="cenaModeliranja"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="5"
+                  >
+                  <span class="enota-valuta">EUR/h</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="profit">
+                  Odstotek profita
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="profit"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="30"
+                  >
+                  <span>%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button
+                class="secondary-button"
+                type="button"
+                onclick="shraniNastavitve()"
+              >
+                Shrani fiksne vrednosti
+              </button>
+
+              <button
+                class="secondary-button"
+                type="button"
+                onclick="privzeteNastavitve()"
+              >
+                Privzete vrednosti
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-label">
+              Spremenljive vrednosti
+            </div>
+
+            <div class="card-header">
+              <h2>Ta izdelek</h2>
+              <span class="pill">Vnesi svoje podatke</span>
+            </div>
+
+            <div class="grid">
+              <div class="full">
+                <label for="imeIzdelka">
+                  Ime izdelka ali projekta
+                </label>
+
+                <input
+                  id="imeIzdelka"
+                  type="text"
+                  autocomplete="off"
+                  value="Držalo za telefon"
+                >
+              </div>
+
+              <div>
+                <label for="casTiskanja">
+                  Čas tiskanja enega kosa
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="casTiskanja"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="2,5"
+                  >
+                  <span>h</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="masa">
+                  Masa enega kosa
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="masa"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0,045"
+                  >
+                  <span>kg</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="vrstaFilamenta">
+                  Vrsta filamenta
+                </label>
+
+                <select id="vrstaFilamenta">
+                  <option value="PLA">PLA</option>
+                  <option value="PETG">PETG</option>
+                  <option value="ABS">ABS</option>
+                  <option value="TPU">TPU</option>
+                  <option value="Drugo">Drugo</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cenaFilamenta">
+                  Cena filamenta
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="cenaFilamenta"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="20"
+                  >
+                  <span class="enota-valuta">EUR/kg</span>
+                </div>
+              </div>
+
+              <div class="full">
+                <label>
+                  Ostali material na kos
+                </label>
+
+                <div class="material-row">
+                  <input
+                    id="opis1"
+                    type="text"
+                    autocomplete="off"
+                    value="Magneti"
+                    placeholder="Opis materiala"
+                    aria-label="Opis materiala 1"
+                  >
+
+                  <input
+                    id="material1"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="1,5"
+                    placeholder="EUR"
+                    aria-label="Cena materiala 1"
+                  >
+                </div>
+
+                <div class="material-row">
+                  <input
+                    id="opis2"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Opis materiala"
+                    aria-label="Opis materiala 2"
+                  >
+
+                  <input
+                    id="material2"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                    placeholder="EUR"
+                    aria-label="Cena materiala 2"
+                  >
+                </div>
+
+                <div class="material-row">
+                  <input
+                    id="opis3"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Opis materiala"
+                    aria-label="Opis materiala 3"
+                  >
+
+                  <input
+                    id="material3"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="0"
+                    placeholder="EUR"
+                    aria-label="Cena materiala 3"
+                  >
+                </div>
+              </div>
+
+              <div>
+                <label for="steviloIzdelkov">
+                  Število izdelkov
+                </label>
+
+                <div class="stepper">
+                  <button
+                    type="button"
+                    aria-label="Manj"
+                    onclick="spremeniStevilo(-1)"
+                  >
+                    −
+                  </button>
+
+                  <!-- type="text" + inputmode: na iPhonu type="number" nima številčne tipkovnice in dovoli črke -->
+                  <input
+                    id="steviloIzdelkov"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    autocomplete="off"
+                    value="4"
+                  >
+
+                  <button
+                    type="button"
+                    aria-label="Več"
+                    onclick="spremeniStevilo(1)"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label>
+                  Modeliranje
+                </label>
+
+                <div class="toggle">
+                  <button
+                    id="modeliranjeDa"
+                    class="active"
+                    type="button"
+                    onclick="nastaviModeliranje(true)"
+                  >
+                    Da
+                  </button>
+
+                  <button
+                    id="modeliranjeNe"
+                    type="button"
+                    onclick="nastaviModeliranje(false)"
+                  >
+                    Ne
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label for="ureModeliranja">
+                  Število ur modeliranja
+                </label>
+
+                <div class="input-unit">
+                  <input
+                    id="ureModeliranja"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    value="1,5"
+                  >
+                  <span>h</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="nacinObracuna">
+                  Način obračuna
+                </label>
+
+                <select id="nacinObracuna">
+                  <option value="skupaj">
+                    Enkrat za celotno naročilo
+                  </option>
+
+                  <option value="kos">
+                    Za vsak kos posebej
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button
+                class="primary-button"
+                type="button"
+                onclick="izracunaj()"
+              >
+                Izračunaj
+              </button>
+
+              <button
+                class="secondary-button"
+                type="button"
+                onclick="ponastaviVnose()"
+              >
+                Ponastavi
+              </button>
+            </div>
+
+            <div id="errorBox" class="error-box"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-card">
+            <div class="results-title">
+              <div>
+                <div class="section-label">
+                  Rezultati
+                </div>
+
+                <h2 id="rezultatIme">
+                  Držalo za telefon
+                </h2>
+              </div>
+
+              <span class="pill">
+                Izračun
+              </span>
+            </div>
+
+            <div class="result-line">
+              <span>Elektrika (en kos)</span>
+              <strong id="rezElektrikaKos">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-line">
+              <span>Filament (en kos)</span>
+              <strong id="rezFilamentKos">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-line">
+              <span>Ostali material (en kos)</span>
+              <strong id="rezMaterialKos">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-line">
+              <span>Tiskanje enega kosa</span>
+              <strong id="rezTiskanjeKos">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-line">
+              <span>Modeliranje (skupaj)</span>
+              <strong id="rezModeliranje">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-separator"></div>
+
+            <div class="result-line main">
+              <span>Neto strošek enega kosa</span>
+              <strong id="rezNetoKos">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-line main">
+              <span>Cena enega kosa s profitom</span>
+              <strong id="rezCenaKos">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-line">
+              <span>Skupni neto strošek</span>
+              <strong id="rezNetoSkupaj">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-line">
+              <span>Znesek profita</span>
+              <strong id="rezProfit">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="grand-total">
+              <span>Skupna cena s profitom</span>
+              <strong id="rezSkupaj">
+                0,00 EUR
+              </strong>
+            </div>
+
+            <div class="result-note">
+              <span id="rezOpomba">
+                Število izdelkov: 4.
+              </span>
+            </div>
+          </div>
+
+          <div class="right-actions">
+            <button
+              class="primary-button save"
+              type="button"
+              onclick="shraniIzracun()"
+            >
+              Shrani izračun
+            </button>
+
+            <button
+              class="secondary-button"
+              type="button"
+              onclick="izvoziVExcel()"
+            >
+              Izvozi v Excel
+            </button>
+
+            <button
+              class="secondary-button"
+              type="button"
+              onclick="shraniPodatke()"
+            >
+              Shrani podatke
+            </button>
+
+            <button
+              class="secondary-button"
+              type="button"
+              onclick="naloziPodatke()"
+            >
+              Naloži podatke
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zgodovina" class="view">
+      <div class="history-title">
+        <div>
+          <div class="section-label">
+            Shranjeni izračuni
+          </div>
+
+          <h2>Zgodovina</h2>
+        </div>
+
+        <button
+          class="secondary-button"
+          type="button"
+          onclick="izvoziZgodovinoVExcel()"
+        >
+          Izvozi zgodovino v Excel
+        </button>
+      </div>
+
+      <div id="historyList"></div>
+    </section>
+
+    <section id="nastavitve" class="view">
+      <div class="card">
+        <div class="settings-title">
+          <div>
+            <div class="section-label">
+              Nastavitve aplikacije
+            </div>
+
+            <h2>Nastavitve</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="imePodjetja">
+              Ime podjetja ali izvajalca
+            </label>
+
+            <input
+              id="imePodjetja"
+              type="text"
+              autocomplete="organization"
+              placeholder="Moje podjetje"
+            >
+          </div>
+
+          <div>
+            <label for="valuta">
+              Valuta
+            </label>
+
+            <select id="valuta">
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button
+            class="primary-button"
+            type="button"
+            onclick="shraniSistemskeNastavitve()"
+          >
+            Shrani nastavitve
+          </button>
+
+          <button
+            class="danger-button"
+            type="button"
+            onclick="izbrisiVsePodatke()"
+          >
+            Izbriši vse podatke
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+/*@XLSX@*/
+  </script>
+
+  <script>
+    let modeliranjeVkljuceno = true;
+    let trenutniIzracun = null;
+    let statusTimer = null;
+
+    const idsPolj = [
+      "porabaElektrike",
+      "cenaElektrike",
+      "cenaModeliranja",
+      "profit",
+      "imeIzdelka",
+      "casTiskanja",
+      "masa",
+      "vrstaFilamenta",
+      "cenaFilamenta",
+      "opis1",
+      "material1",
+      "opis2",
+      "material2",
+      "opis3",
+      "material3",
+      "steviloIzdelkov",
+      "ureModeliranja",
+      "nacinObracuna"
+    ];
+
+    const privzeteVrednosti = {
+      porabaElektrike: "2",
+      cenaElektrike: "0,17",
+      cenaModeliranja: "5",
+      profit: "30",
+      imeIzdelka: "Držalo za telefon",
+      casTiskanja: "2,5",
+      masa: "0,045",
+      vrstaFilamenta: "PLA",
+      cenaFilamenta: "20",
+      opis1: "Magneti",
+      material1: "1,5",
+      opis2: "",
+      material2: "0",
+      opis3: "",
+      material3: "0",
+      steviloIzdelkov: "4",
+      ureModeliranja: "1,5",
+      nacinObracuna: "skupaj"
+    };
+
+    /* ---------- Shranjevanje v brskalniku ---------- */
+
+    // V zasebnem načinu Safarija ali ob polnem pomnilniku localStorage javi napako;
+    // aplikacija takrat deluje naprej, le shranjevanje ne uspe.
+    function preberi(kljuc, privzeto) {
+      try {
+        const vrednost = localStorage.getItem(kljuc);
+        return vrednost ? JSON.parse(vrednost) : privzeto;
+      } catch (napaka) {
+        return privzeto;
+      }
+    }
+
+    function zapisi(kljuc, vrednost) {
+      try {
+        localStorage.setItem(kljuc, JSON.stringify(vrednost));
+        return true;
+      } catch (napaka) {
+        prikaziSporocilo("Shranjevanje ni uspelo (zasebni način ali poln pomnilnik).");
+        return false;
+      }
+    }
+
+    function stevilo(id) {
+      const element = document.getElementById(id);
+
+      if (!element) {
+        return 0;
+      }
+
+      let besedilo = String(element.value)
+        .trim()
+        .replace(/\s/g, "");
+
+      // "1.234,5" → 1234.5; "1,5" ali "1.5" → 1.5
+      if (besedilo.includes(",") && besedilo.includes(".")) {
+        besedilo = besedilo.replace(/\./g, "");
+      }
+
+      besedilo = besedilo.replace(",", ".");
+
+      const vrednost = Number(besedilo);
+
+      return Number.isFinite(vrednost) ? vrednost : 0;
+    }
+
+    function valuta() {
+      const izbira = document.getElementById("valuta");
+      return izbira ? izbira.value : "EUR";
+    }
+
+    // Brez toLocaleString: nekateri starejši Androidi nimajo slovenskih
+    // nastavitev in bi izpisali "1,234.50" namesto "1.234,50".
+    function denar(vrednost) {
+      const zaokrozeno = Math.round((vrednost + Number.EPSILON) * 100) / 100;
+      const [cela, decimalke] = Math.abs(zaokrozeno).toFixed(2).split(".");
+      const skupine = cela.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+      return (zaokrozeno < 0 ? "-" : "") + skupine + "," + decimalke + " " + valuta();
+    }
+
+    function datumBesedilo(iso) {
+      const d = new Date(iso);
+
+      if (isNaN(d)) {
+        return String(iso);
+      }
+
+      const dvomestno = function(n) {
+        return String(n).padStart(2, "0");
+      };
+
+      return d.getDate() + ". " + (d.getMonth() + 1) + ". " + d.getFullYear() +
+        " " + dvomestno(d.getHours()) + ":" + dvomestno(d.getMinutes());
+    }
+
+    function prikaziSporocilo(besedilo) {
+      const status = document.querySelector(".status");
+
+      status.innerHTML = "<span></span>";
+      status.appendChild(document.createTextNode(besedilo));
+
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(function() {
+        status.innerHTML =
+          "<span></span>Podatki: v tej napravi";
+      }, 2500);
+    }
+
+    // Lastno okno namesto confirm(): ta v nekaterih okoljih (npr. claude.ai) ne deluje
+    function potrdi(besedilo, gumb) {
+      return new Promise(function(koncaj) {
+        const ozadje = document.createElement("div");
+        ozadje.className = "dialog-ozadje";
+
+        const okno = document.createElement("div");
+        okno.className = "dialog";
+        okno.setAttribute("role", "dialog");
+        okno.setAttribute("aria-modal", "true");
+
+        const p = document.createElement("p");
+        p.textContent = besedilo;
+
+        const vrstica = document.createElement("div");
+        vrstica.className = "button-row";
+
+        const preklici = document.createElement("button");
+        preklici.type = "button";
+        preklici.className = "secondary-button";
+        preklici.textContent = "Prekliči";
+
+        const da = document.createElement("button");
+        da.type = "button";
+        da.className = "danger-button";
+        da.textContent = gumb || "Izbriši";
+
+        const zapri = function(odgovor) {
+          ozadje.remove();
+          koncaj(odgovor);
+        };
+
+        preklici.onclick = function() { zapri(false); };
+        da.onclick = function() { zapri(true); };
+        ozadje.onclick = function(e) { if (e.target === ozadje) zapri(false); };
+
+        vrstica.append(preklici, da);
+        okno.append(p, vrstica);
+        ozadje.appendChild(okno);
+        document.body.appendChild(ozadje);
+        da.focus();
+      });
+    }
+
+    function nastaviModeliranje(vkljuceno) {
+      modeliranjeVkljuceno = vkljuceno;
+
+      document
+        .getElementById("modeliranjeDa")
+        .classList.toggle("active", vkljuceno);
+
+      document
+        .getElementById("modeliranjeNe")
+        .classList.toggle("active", !vkljuceno);
+
+      izracunaj();
+    }
+
+    function spremeniStevilo(sprememba) {
+      const polje =
+        document.getElementById("steviloIzdelkov");
+
+      const trenutno =
+        Math.max(1, parseInt(polje.value || "1", 10) || 1);
+
+      polje.value =
+        Math.max(1, trenutno + sprememba);
+
+      izracunaj();
+    }
+
+    function preveriNegativneVrednosti() {
+      const ids = [
+        "porabaElektrike",
+        "cenaElektrike",
+        "cenaModeliranja",
+        "profit",
+        "casTiskanja",
+        "masa",
+        "cenaFilamenta",
+        "material1",
+        "material2",
+        "material3",
+        "steviloIzdelkov",
+        "ureModeliranja"
+      ];
+
+      return ids.some(function(id) {
+        return stevilo(id) < 0;
+      });
+    }
+
+    function izracunaj() {
+      const errorBox =
+        document.getElementById("errorBox");
+
+      errorBox.style.display = "none";
+
+      if (preveriNegativneVrednosti()) {
+        errorBox.textContent =
+          "Vrednosti ne smejo biti negativne.";
+
+        errorBox.style.display = "block";
+
+        return null;
+      }
+
+      const ime =
+        document.getElementById("imeIzdelka")
+          .value
+          .trim() || "Neimenovan izdelek";
+
+      const steviloIzdelkov =
+        Math.max(
+          1,
+          Math.ceil(stevilo("steviloIzdelkov"))
+        );
+
+      const porabaElektrike =
+        stevilo("porabaElektrike");
+
+      const cenaElektrike =
+        stevilo("cenaElektrike");
+
+      const casTiskanja =
+        stevilo("casTiskanja");
+
+      const cenaFilamenta =
+        stevilo("cenaFilamenta");
+
+      const masa =
+        stevilo("masa");
+
+      const cenaModeliranja =
+        stevilo("cenaModeliranja");
+
+      const profitOdstotek =
+        stevilo("profit");
+
+      const ureModeliranja =
+        stevilo("ureModeliranja");
+
+      const materialKos =
+        stevilo("material1") +
+        stevilo("material2") +
+        stevilo("material3");
+
+      const elektrikaKos =
+        porabaElektrike *
+        cenaElektrike *
+        casTiskanja;
+
+      const filamentKos =
+        cenaFilamenta *
+        masa;
+
+      const tiskanjeKos =
+        elektrikaKos +
+        filamentKos;
+
+      let modeliranjeSkupaj = 0;
+
+      if (modeliranjeVkljuceno) {
+        modeliranjeSkupaj =
+          cenaModeliranja *
+          ureModeliranja;
+
+        if (
+          document.getElementById("nacinObracuna")
+            .value === "kos"
+        ) {
+          modeliranjeSkupaj *= steviloIzdelkov;
+        }
+      }
+
+      const materialSkupaj =
+        materialKos *
+        steviloIzdelkov;
+
+      const tiskanjeSkupaj =
+        tiskanjeKos *
+        steviloIzdelkov;
+
+      const netoSkupaj =
+        materialSkupaj +
+        tiskanjeSkupaj +
+        modeliranjeSkupaj;
+
+      const modeliranjeKos =
+        modeliranjeSkupaj /
+        steviloIzdelkov;
+
+      const netoKos =
+        netoSkupaj /
+        steviloIzdelkov;
+
+      const profitZnesek =
+        netoSkupaj *
+        profitOdstotek /
+        100;
+
+      const cenaKos =
+        netoKos *
+        (1 + profitOdstotek / 100);
+
+      const skupaj =
+        netoSkupaj +
+        profitZnesek;
+
+      trenutniIzracun = {
+        ime: ime,
+        steviloIzdelkov: steviloIzdelkov,
+        elektrikaKos: elektrikaKos,
+        filamentKos: filamentKos,
+        materialKos: materialKos,
+        tiskanjeKos: tiskanjeKos,
+        modeliranjeSkupaj: modeliranjeSkupaj,
+        modeliranjeKos: modeliranjeKos,
+        materialSkupaj: materialSkupaj,
+        tiskanjeSkupaj: tiskanjeSkupaj,
+        netoKos: netoKos,
+        netoSkupaj: netoSkupaj,
+        profitZnesek: profitZnesek,
+        cenaKos: cenaKos,
+        skupaj: skupaj,
+        datum: new Date().toISOString()
+      };
+
+      document.getElementById("rezultatIme")
+        .textContent = ime;
+
+      document.getElementById("rezElektrikaKos")
+        .textContent = denar(elektrikaKos);
+
+      document.getElementById("rezFilamentKos")
+        .textContent = denar(filamentKos);
+
+      document.getElementById("rezMaterialKos")
+        .textContent = denar(materialKos);
+
+      document.getElementById("rezTiskanjeKos")
+        .textContent = denar(tiskanjeKos);
+
+      document.getElementById("rezModeliranje")
+        .textContent = denar(modeliranjeSkupaj);
+
+      document.getElementById("rezNetoKos")
+        .textContent = denar(netoKos);
+
+      document.getElementById("rezCenaKos")
+        .textContent = denar(cenaKos);
+
+      document.getElementById("rezNetoSkupaj")
+        .textContent = denar(netoSkupaj);
+
+      document.getElementById("rezProfit")
+        .textContent = denar(profitZnesek);
+
+      document.getElementById("rezSkupaj")
+        .textContent = denar(skupaj);
+
+      document.getElementById("rezOpomba")
+        .textContent =
+        "Število izdelkov: " +
+        steviloIzdelkov +
+        ". Zneski so zaokroženi na dve decimalki.";
+
+      return trenutniIzracun;
+    }
+
+    function pridobiPodatke() {
+      const podatki = {
+        modeliranjeVkljuceno: modeliranjeVkljuceno
+      };
+
+      idsPolj.forEach(function(id) {
+        podatki[id] =
+          document.getElementById(id).value;
+      });
+
+      return podatki;
+    }
+
+    function vpisiPodatke(podatki) {
+      idsPolj.forEach(function(id) {
+        if (podatki[id] !== undefined) {
+          document.getElementById(id).value =
+            podatki[id];
+        }
+      });
+
+      nastaviModeliranje(
+        podatki.modeliranjeVkljuceno !== false
+      );
+    }
+
+    function shraniIzracun() {
+      const izracun = izracunaj();
+
+      if (!izracun) {
+        return;
+      }
+
+      const zgodovina = preberi("3dZgodovina", []);
+
+      zgodovina.unshift({
+        izracun: izracun,
+        podatki: pridobiPodatke()
+      });
+
+      if (zapisi("3dZgodovina", zgodovina.slice(0, 50))) {
+        prikaziSporocilo("Izračun je shranjen.");
+      }
+
+      prikaziZgodovino();
+    }
+
+    function prikaziZgodovino() {
+      const seznam =
+        document.getElementById("historyList");
+
+      const zgodovina = preberi("3dZgodovina", []);
+
+      if (!zgodovina.length) {
+        seznam.innerHTML =
+          '<div class="empty">Še ni shranjenih izračunov.</div>';
+
+        return;
+      }
+
+      seznam.innerHTML = "";
+
+      zgodovina.forEach(function(zapis, index) {
+        const izracun = zapis.izracun;
+
+        const element =
+          document.createElement("div");
+
+        element.className = "history-item";
+
+        element.innerHTML = `
+          <h3>${varnoBesedilo(izracun.ime)}</h3>
+
+          <div class="history-meta">
+            ${datumBesedilo(izracun.datum)} · ${izracun.steviloIzdelkov} kosov
+          </div>
+
+          <div class="history-values">
+            <span>Neto: ${denar(izracun.netoSkupaj)}</span>
+            <span>S profitom: ${denar(izracun.skupaj)}</span>
+          </div>
+
+          <div class="history-buttons">
+            <button
+              class="primary-button"
+              type="button"
+              onclick="odpriZgodovino(${index})"
+            >
+              Odpri
+            </button>
+
+            <button
+              class="danger-button"
+              type="button"
+              onclick="izbrisiZgodovino(${index})"
+            >
+              Izbriši
+            </button>
+          </div>
+        `;
+
+        seznam.appendChild(element);
+      });
+    }
+
+    function odpriZgodovino(index) {
+      const zapis = preberi("3dZgodovina", [])[index];
+
+      if (!zapis || !zapis.podatki) {
+        return;
+      }
+
+      vpisiPodatke(zapis.podatki);
+      izracunaj();
+      preklopiPogled("izracun");
+    }
+
+    async function izbrisiZgodovino(index) {
+      if (!(await potrdi("Ali res želiš izbrisati ta izračun?"))) {
+        return;
+      }
+
+      const zgodovina = preberi("3dZgodovina", []);
+
+      zgodovina.splice(index, 1);
+      zapisi("3dZgodovina", zgodovina);
+
+      prikaziZgodovino();
+    }
+
+    function preklopiPogled(viewId) {
+      document.querySelectorAll(".view")
+        .forEach(function(view) {
+          view.classList.remove("active");
+        });
+
+      document.querySelectorAll(".tab")
+        .forEach(function(tab) {
+          tab.classList.toggle(
+            "active",
+            tab.dataset.view === viewId
+          );
+        });
+
+      document.getElementById(viewId)
+        .classList.add("active");
+
+      if (viewId === "zgodovina") {
+        prikaziZgodovino();
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    function shraniPodatke() {
+      if (zapisi("3dPodatki", pridobiPodatke())) {
+        prikaziSporocilo("Podatki so shranjeni.");
+      }
+    }
+
+    function naloziPodatke() {
+      const podatki = preberi("3dPodatki", null);
+
+      if (!podatki) {
+        prikaziSporocilo(
+          "Shranjeni podatki ne obstajajo."
+        );
+
+        return;
+      }
+
+      vpisiPodatke(podatki);
+      izracunaj();
+      prikaziSporocilo("Podatki so naloženi.");
+    }
+
+    function shraniNastavitve() {
+      const ok = zapisi("3dNastavitve", {
+        porabaElektrike:
+          document.getElementById("porabaElektrike").value,
+
+        cenaElektrike:
+          document.getElementById("cenaElektrike").value,
+
+        cenaModeliranja:
+          document.getElementById("cenaModeliranja").value,
+
+        profit:
+          document.getElementById("profit").value
+      });
+
+      if (ok) {
+        prikaziSporocilo(
+          "Fiksne vrednosti so shranjene."
+        );
+      }
+    }
+
+    function shraniSistemskeNastavitve() {
+      const ok = zapisi("3dSistemskeNastavitve", {
+        imePodjetja:
+          document.getElementById("imePodjetja").value,
+
+        valuta:
+          document.getElementById("valuta").value
+      });
+
+      osveziValuto();
+
+      if (ok) {
+        prikaziSporocilo(
+          "Nastavitve so shranjene."
+        );
+      }
+    }
+
+    // Shranjene fiksne vrednosti in nastavitve ob odprtju aplikacije
+    function naloziShranjeneNastavitve() {
+      const fiksne = preberi("3dNastavitve", null);
+
+      if (fiksne) {
+        ["porabaElektrike", "cenaElektrike", "cenaModeliranja", "profit"]
+          .forEach(function(id) {
+            if (fiksne[id] !== undefined) {
+              document.getElementById(id).value = fiksne[id];
+            }
+          });
+      }
+
+      const sistemske = preberi("3dSistemskeNastavitve", null);
+
+      if (sistemske) {
+        document.getElementById("imePodjetja").value =
+          sistemske.imePodjetja || "";
+
+        if (sistemske.valuta) {
+          document.getElementById("valuta").value = sistemske.valuta;
+        }
+      }
+
+      osveziValuto();
+    }
+
+    function osveziValuto() {
+      document.querySelectorAll(".enota-valuta")
+        .forEach(function(enota) {
+          enota.textContent = enota.textContent.replace(/^[A-Z]{3}/, valuta());
+        });
+
+      document.querySelectorAll('.material-row input[inputmode="decimal"]')
+        .forEach(function(polje) {
+          polje.placeholder = valuta();
+        });
+
+      izracunaj();
+      prikaziZgodovino();
+    }
+
+    function privzeteNastavitve() {
+      document.getElementById("porabaElektrike").value =
+        "2";
+
+      document.getElementById("cenaElektrike").value =
+        "0,17";
+
+      document.getElementById("cenaModeliranja").value =
+        "5";
+
+      document.getElementById("profit").value =
+        "30";
+
+      izracunaj();
+    }
+
+    function ponastaviVnose() {
+      Object.keys(privzeteVrednosti)
+        .forEach(function(id) {
+          document.getElementById(id).value =
+            privzeteVrednosti[id];
+        });
+
+      naloziShranjeneNastavitve();
+      nastaviModeliranje(true);
+      izracunaj();
+    }
+
+    /* ---------- Shranjevanje datotek (telefon in računalnik) ---------- */
+
+    const jeNaDotik =
+      window.matchMedia("(pointer: coarse)").matches ||
+      navigator.maxTouchPoints > 1;
+
+    const jeIOS =
+      /iP(hone|ad|od)/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    const jeNaZacetnemZaslonu =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      navigator.standalone === true;
+
+    // Na telefonu odpre meni »Deli« (Shrani v Datoteke, e-pošta, WhatsApp …),
+    // na računalniku datoteko prenese.
+    async function shraniDatoteko(imeDatoteke, bajti, tip) {
+      const blob = new Blob([bajti], { type: tip });
+
+      // Na claude.ai (tudi v aplikaciji Claude na telefonu) shrani prek Claudovega okna
+      let prenosi = null;
+
+      if (window.claude && typeof window.claude.use === "function") {
+        try {
+          prenosi = await window.claude.use("downloads");
+        } catch (napaka) {
+          prenosi = null;
+        }
+      }
+
+      if (prenosi) {
+        try {
+          await prenosi.save({ filename: imeDatoteke, data: blob });
+          prikaziSporocilo("Shranjeno: " + imeDatoteke);
+        } catch (napaka) {
+          if (napaka && napaka.code === "declined") {
+            return;
+          }
+
+          prikaziSporocilo(
+            napaka && napaka.code === "rate_limited"
+              ? "Počakaj trenutek in poskusi znova."
+              : "Datoteke ni bilo mogoče shraniti."
+          );
+        }
+
+        return;
+      }
+
+      if (jeNaDotik && navigator.canShare && typeof File === "function") {
+        let datoteka = null;
+
+        try {
+          datoteka = new File([blob], imeDatoteke, { type: tip });
+        } catch (napaka) {
+          datoteka = null;
+        }
+
+        if (datoteka && navigator.canShare({ files: [datoteka] })) {
+          try {
+            await navigator.share({ files: [datoteka], title: imeDatoteke });
+            return;
+          } catch (napaka) {
+            if (napaka && napaka.name === "AbortError") {
+              return;
+            }
+            // drugače poskusi s prenosom
+          }
+        }
+      }
+
+      const url = URL.createObjectURL(blob);
+
+      if (jeIOS && jeNaZacetnemZaslonu) {
+        // Aplikacija na začetnem zaslonu iPhona ne zna prenašati datotek:
+        // datoteko odpre, od tam pa Deli → Shrani v Datoteke.
+        if (!window.open(url, "_blank")) {
+          location.href = url;
+        }
+        setTimeout(function() { URL.revokeObjectURL(url); }, 60000);
+        return;
+      }
+
+      const povezava = document.createElement("a");
+      povezava.href = url;
+      povezava.download = imeDatoteke;
+      document.body.appendChild(povezava);
+      povezava.click();
+
+      setTimeout(function() {
+        URL.revokeObjectURL(url);
+        povezava.remove();
+      }, 60000);
+
+      prikaziSporocilo(
+        jeIOS ? "Datoteka je v mapi Prenosi (aplikacija Datoteke)." : "Shranjeno: " + imeDatoteke
+      );
+    }
+
+    const XLSX_TIP =
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+    function izvoziVExcel() {
+      const izracun = izracunaj();
+
+      if (!izracun) {
+        return;
+      }
+
+      const S = XLSX_STYLE;
+      const glava = function(a, b) {
+        return [{ v: a, s: S.header }, { v: b, s: S.header }];
+      };
+      const podjetje = document.getElementById("imePodjetja").value.trim();
+      // Zneski v EUR dobijo obliko "1.234,50 EUR", druge valute le število
+      const zn = valuta() === "EUR" ? S.eur : S.num;
+      const znKrepko = valuta() === "EUR" ? S.resultBold : S.bold;
+
+      const podatki = [
+        [{ v: "IZRAČUN STROŠKOV 3D-TISKA", s: S.title }],
+        ["Ime izdelka", izracun.ime],
+        ["Datum", datumBesedilo(new Date().toISOString())],
+        podjetje ? ["Izvajalec", podjetje] : [],
+        ["Valuta", valuta()],
+        [],
+
+        glava("VHODNI PODATKI", "VREDNOST"),
+        [
+          "Poraba elektrike (kWh)",
+          { v: stevilo("porabaElektrike"), s: S.num }
+        ],
+        [
+          "Cena elektrike (" + valuta() + "/kWh)",
+          { v: stevilo("cenaElektrike"), s: S.num }
+        ],
+        [
+          "Cena modeliranja (" + valuta() + "/h)",
+          { v: stevilo("cenaModeliranja"), s: S.num }
+        ],
+        [
+          "Profit (%)",
+          { v: stevilo("profit"), s: S.num }
+        ],
+        [
+          "Čas tiskanja (h)",
+          { v: stevilo("casTiskanja"), s: S.num }
+        ],
+        [
+          "Masa izdelka (kg)",
+          { v: stevilo("masa"), s: S.mass }
+        ],
+        [
+          "Vrsta filamenta",
+          document.getElementById("vrstaFilamenta").value
+        ],
+        [
+          "Cena filamenta (" + valuta() + "/kg)",
+          { v: stevilo("cenaFilamenta"), s: S.num }
+        ],
+        [
+          "Število izdelkov",
+          izracun.steviloIzdelkov
+        ],
+        [
+          "Modeliranje",
+          modeliranjeVkljuceno ? "Da" : "Ne"
+        ],
+        [
+          "Ure modeliranja",
+          { v: stevilo("ureModeliranja"), s: S.num }
+        ],
+        [
+          "Način obračuna",
+          document.getElementById("nacinObracuna").selectedOptions[0].textContent.trim()
+        ],
+        [],
+
+        glava("MATERIAL", "CENA (" + valuta() + ")"),
+        [
+          document.getElementById("opis1").value || "Material 1",
+          { v: stevilo("material1"), s: zn }
+        ],
+        [
+          document.getElementById("opis2").value || "Material 2",
+          { v: stevilo("material2"), s: zn }
+        ],
+        [
+          document.getElementById("opis3").value || "Material 3",
+          { v: stevilo("material3"), s: zn }
+        ],
+        [],
+
+        glava("REZULTATI", "VREDNOST (" + valuta() + ")"),
+        [
+          "Elektrika (en kos)",
+          { v: izracun.elektrikaKos, s: zn }
+        ],
+        [
+          "Filament (en kos)",
+          { v: izracun.filamentKos, s: zn }
+        ],
+        [
+          "Ostali material (en kos)",
+          { v: izracun.materialKos, s: zn }
+        ],
+        [
+          "Tiskanje enega kosa",
+          { v: izracun.tiskanjeKos, s: zn }
+        ],
+        [
+          "Modeliranje skupaj",
+          { v: izracun.modeliranjeSkupaj, s: zn }
+        ],
+        [
+          "Neto strošek enega kosa",
+          { v: izracun.netoKos, s: zn }
+        ],
+        [
+          "Cena enega kosa s profitom",
+          { v: izracun.cenaKos, s: zn }
+        ],
+        [
+          "Skupni neto strošek",
+          { v: izracun.netoSkupaj, s: zn }
+        ],
+        [
+          "Znesek profita",
+          { v: izracun.profitZnesek, s: zn }
+        ],
+        [
+          { v: "Skupna cena s profitom", s: S.bold },
+          { v: izracun.skupaj, s: znKrepko }
+        ]
+      ];
+
+      const bajti = XlsxWriter.build([
+        { name: "Izračun", rows: podatki, cols: [40, 22] }
+      ]);
+
+      shraniDatoteko(
+        "izracun_stroskov_3D_tiska.xlsx",
+        bajti,
+        XLSX_TIP
+      );
+    }
+
+    function izvoziZgodovinoVExcel() {
+      const zgodovina = preberi("3dZgodovina", []);
+
+      if (!zgodovina.length) {
+        prikaziSporocilo(
+          "Zgodovina je prazna."
+        );
+
+        return;
+      }
+
+      const S = XLSX_STYLE;
+      const zn = valuta() === "EUR" ? S.eur : S.num;
+
+      const podatki = [
+        [
+          "Izdelek",
+          "Datum",
+          "Število izdelkov",
+          "Neto strošek (" + valuta() + ")",
+          "Cena s profitom (" + valuta() + ")"
+        ].map(function(v) { return { v: v, s: S.header }; })
+      ];
+
+      zgodovina.forEach(function(zapis) {
+        const izracun = zapis.izracun;
+
+        podatki.push([
+          izracun.ime,
+          datumBesedilo(izracun.datum),
+          izracun.steviloIzdelkov,
+          { v: izracun.netoSkupaj, s: zn },
+          { v: izracun.skupaj, s: zn }
+        ]);
+      });
+
+      const bajti = XlsxWriter.build([
+        { name: "Zgodovina", rows: podatki, cols: [30, 18, 16, 20, 22], freezeHeader: true }
+      ]);
+
+      shraniDatoteko(
+        "zgodovina_3D_izracunov.xlsx",
+        bajti,
+        XLSX_TIP
+      );
+    }
+
+    async function izbrisiVsePodatke() {
+      const ok = await potrdi(
+        "Ali želiš izbrisati vse shranjene podatke in zgodovino?",
+        "Izbriši vse"
+      );
+
+      if (!ok) {
+        return;
+      }
+
+      // Izbriši samo podatke te aplikacije
+      ["3dZgodovina", "3dPodatki", "3dNastavitve", "3dSistemskeNastavitve"]
+        .forEach(function(kljuc) {
+          try { localStorage.removeItem(kljuc); } catch (napaka) {}
+        });
+
+      location.reload();
+    }
+
+    function varnoBesedilo(besedilo) {
+      return String(besedilo)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    document
+      .querySelectorAll(".tab")
+      .forEach(function(tab) {
+        tab.addEventListener("click", function() {
+          preklopiPogled(tab.dataset.view);
+        });
+      });
+
+    idsPolj.forEach(function(id) {
+      const element =
+        document.getElementById(id);
+
+      element.addEventListener(
+        "input",
+        izracunaj
+      );
+
+      element.addEventListener(
+        "change",
+        izracunaj
+      );
+    });
+
+    document.getElementById("valuta")
+      .addEventListener("change", osveziValuto);
+
+    // Brskalnik naj shranjenih podatkov ne briše sam od sebe
+    try {
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().catch(function() {});
+      }
+    } catch (napaka) {}
+
+    naloziShranjeneNastavitve();
+    izracunaj();
+    prikaziZgodovino();
+  </script>
+  <!--@SW@-->
+</body>
+</html>
