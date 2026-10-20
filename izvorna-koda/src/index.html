@@ -739,6 +739,123 @@
         font-size: 27px;
       }
     }
+
+    /* ---------- Finance ---------- */
+
+    .subtabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .subtabs button {
+      flex: 1;
+      min-height: 42px;
+      border: 1px solid var(--obroba);
+      background: var(--bela);
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      color: var(--siva);
+      cursor: pointer;
+    }
+
+    .subtabs button.active {
+      background: var(--zelena);
+      border-color: var(--zelena);
+      color: white;
+    }
+
+    .fin-panel {
+      display: none;
+    }
+
+    .fin-panel.active {
+      display: block;
+    }
+
+    .fin-povzetek {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .fin-povzetek > div {
+      background: var(--bela);
+      border: 1px solid var(--obroba);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .fin-povzetek span {
+      display: block;
+      font-size: 12px;
+      color: var(--siva);
+    }
+
+    .fin-povzetek strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 17px;
+      overflow-wrap: anywhere;
+    }
+
+    .fin-plus { color: var(--zelena); }
+    .fin-minus { color: var(--napaka); }
+
+    .fin-postavka {
+      display: grid;
+      grid-template-columns: 1fr 70px 90px 36px;
+      gap: 6px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+
+    .fin-postavka .odstrani {
+      min-height: 40px;
+      border: 1px solid var(--obroba);
+      background: var(--bela);
+      border-radius: 8px;
+      color: var(--napaka);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .fin-vrstica {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--obroba);
+    }
+
+    .fin-vrstica:last-child { border-bottom: 0; }
+    .fin-vrstica small { display: block; color: var(--siva); }
+    .fin-vrstica b { white-space: nowrap; }
+
+    #tiskPovrsina { display: none; }
+
+    .racun-tisk { font-family: Arial, sans-serif; color: #000; padding: 24px; }
+    .racun-tisk h1 { margin: 0 0 4px; font-size: 26px; }
+    .racun-tisk table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .racun-tisk th, .racun-tisk td { padding: 8px; border-bottom: 1px solid #999; text-align: left; }
+    .racun-tisk th:nth-child(n+2), .racun-tisk td:nth-child(n+2) { text-align: right; }
+    .racun-tisk .skupaj { margin-left: auto; width: 260px; }
+    .racun-tisk .skupaj div { display: flex; justify-content: space-between; padding: 4px 0; }
+    .racun-tisk .skupaj .za-placilo { font-size: 18px; font-weight: bold; border-top: 2px solid #000; margin-top: 6px; padding-top: 8px; }
+
+    @media print {
+      body.tiskanje main.app,
+      body.tiskanje .dialog-ozadje { display: none !important; }
+      body.tiskanje #tiskPovrsina { display: block; }
+      body.tiskanje { background: #fff; }
+    }
+
+    @media (max-width: 520px) {
+      .fin-povzetek { grid-template-columns: 1fr; }
+      .fin-postavka { grid-template-columns: 1fr 56px 80px 36px; }
+    }
   </style>
 </head>
 
@@ -761,6 +878,10 @@
 
       <button class="tab" type="button" data-view="zgodovina">
         Zgodovina
+      </button>
+
+      <button class="tab" type="button" data-view="finance">
+        Finance
       </button>
 
       <button class="tab" type="button" data-view="nastavitve">
@@ -1303,6 +1424,151 @@
       <div id="historyList"></div>
     </section>
 
+    <section id="finance" class="view">
+      <div class="subtabs">
+        <button type="button" class="active" data-fin="finKnjiga">Prihodki in odhodki</button>
+        <button type="button" data-fin="finRacun">Račun / ponudba</button>
+      </div>
+
+      <!-- PRIHODKI IN ODHODKI -->
+      <div id="finKnjiga" class="fin-panel active">
+        <div class="fin-povzetek">
+          <div><span>Prihodki</span><strong id="finPrihodki" class="fin-plus"></strong></div>
+          <div><span>Odhodki</span><strong id="finOdhodki" class="fin-minus"></strong></div>
+          <div><span>Dobiček</span><strong id="finDobicek"></strong></div>
+        </div>
+
+        <div class="card">
+          <div class="section-label">Nov vnos</div>
+          <h2 id="finVnosNaslov">Prihodek ali odhodek</h2>
+
+          <div class="grid">
+            <div class="full">
+              <div class="toggle">
+                <button type="button" id="finTipPrihodek" class="active" onclick="finNastaviTip('prihodek')">Prihodek</button>
+                <button type="button" id="finTipOdhodek" onclick="finNastaviTip('odhodek')">Odhodek</button>
+              </div>
+            </div>
+
+            <div>
+              <label for="finDatum">Datum</label>
+              <input id="finDatum" type="date">
+            </div>
+
+            <div>
+              <label for="finKategorija">Kategorija</label>
+              <select id="finKategorija"></select>
+            </div>
+
+            <div class="full">
+              <label for="finOpis">Opis</label>
+              <input id="finOpis" type="text" placeholder="npr. Prodaja stojala za telefon">
+            </div>
+
+            <div class="full">
+              <label for="finZnesek">Znesek</label>
+              <input id="finZnesek" type="text" inputmode="decimal" placeholder="0,00">
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="primary-button" type="button" onclick="finShraniVnos()">Shrani vnos</button>
+            <button class="secondary-button" type="button" onclick="finPonastaviVnos()">Prekliči</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="history-title">
+            <div>
+              <div class="section-label">Pregled</div>
+              <h2>Vnosi</h2>
+            </div>
+            <button class="secondary-button" type="button" onclick="finIzvoziExcel()">Izvozi v Excel</button>
+          </div>
+
+          <div class="grid">
+            <div class="full">
+              <label for="finMesec">Mesec</label>
+              <select id="finMesec" onchange="finPrikaziVnose()"></select>
+            </div>
+          </div>
+
+          <div id="finSeznam"></div>
+        </div>
+      </div>
+
+      <!-- RAČUN / PONUDBA -->
+      <div id="finRacun" class="fin-panel">
+        <div class="card">
+          <div class="section-label">Dokument</div>
+          <h2>Račun ali ponudba</h2>
+
+          <div class="grid">
+            <div class="full">
+              <div class="toggle">
+                <button type="button" id="racTipRacun" class="active" onclick="racNastaviTip('Račun')">Račun</button>
+                <button type="button" id="racTipPonudba" onclick="racNastaviTip('Ponudba')">Ponudba</button>
+              </div>
+            </div>
+
+            <div>
+              <label for="racStevilka">Številka</label>
+              <input id="racStevilka" type="text">
+            </div>
+
+            <div>
+              <label for="racDatum">Datum</label>
+              <input id="racDatum" type="date">
+            </div>
+
+            <div class="full">
+              <label for="racKupec">Kupec (ime in naslov)</label>
+              <textarea id="racKupec" rows="3" style="width:100%;font:inherit;padding:10px;border:1px solid var(--obroba);border-radius:10px" placeholder="Ime Priimek&#10;Ulica 1, 1000 Ljubljana"></textarea>
+            </div>
+
+            <div>
+              <label for="racDdv">DDV (%)</label>
+              <input id="racDdv" type="text" inputmode="decimal" value="0">
+            </div>
+
+            <div>
+              <label for="racPlacilo">Rok plačila (dni)</label>
+              <input id="racPlacilo" type="text" inputmode="numeric" value="15">
+            </div>
+
+            <div class="full">
+              <label for="racOpomba">Opomba</label>
+              <input id="racOpomba" type="text" placeholder="npr. Davčni zavezanec ni">
+            </div>
+          </div>
+
+          <h3 style="margin:18px 0 8px">Postavke</h3>
+          <div id="racPostavke"></div>
+
+          <div class="button-row">
+            <button class="secondary-button" type="button" onclick="racDodajPostavko()">+ Dodaj postavko</button>
+            <button class="secondary-button" type="button" onclick="racIzZgodovine()">+ Iz zgodovine izračunov</button>
+          </div>
+
+          <div class="result-line" style="margin-top:16px"><span>Osnova</span><strong id="racOsnova"></strong></div>
+          <div class="result-line"><span>DDV</span><strong id="racDdvZnesek"></strong></div>
+          <div class="grand-total"><span>Skupaj</span><strong id="racSkupaj"></strong></div>
+
+          <div class="button-row">
+            <button class="primary-button" type="button" onclick="racNatisni()">Natisni / shrani PDF</button>
+            <button class="secondary-button" type="button" onclick="racShrani()">Shrani dokument</button>
+            <button class="danger-button" type="button" onclick="racNov()">Nov dokument</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="section-label">Shranjeno</div>
+          <h2>Dokumenti</h2>
+          <div id="racSeznam"></div>
+        </div>
+      </div>
+    </section>
+
     <section id="nastavitve" class="view">
       <div class="card">
         <div class="settings-title">
@@ -1362,6 +1628,8 @@
       </div>
     </section>
   </main>
+
+  <div id="tiskPovrsina"></div>
 
   <script>
 /*@XLSX@*/
@@ -1962,6 +2230,11 @@
         prikaziZgodovino();
       }
 
+      if (viewId === "finance") {
+        finPrikaziVnose();
+        racPrikaziSeznam();
+      }
+
       window.scrollTo(0, 0);
     }
 
@@ -2408,12 +2681,525 @@
       }
 
       // Izbriši samo podatke te aplikacije
-      ["3dZgodovina", "3dPodatki", "3dNastavitve", "3dSistemskeNastavitve"]
+      ["3dZgodovina", "3dPodatki", "3dNastavitve", "3dSistemskeNastavitve", "3dFinance", "3dRacuni", "3dRacunStevec"]
         .forEach(function(kljuc) {
           try { localStorage.removeItem(kljuc); } catch (napaka) {}
         });
 
       location.reload();
+    }
+
+    /* ---------- Finance ---------- */
+
+    const finKategorije = {
+      prihodek: ["Prodaja", "Storitev (modeliranje)", "Drugo"],
+      odhodek: ["Filament", "Oprema in rezervni deli", "Elektrika", "Embalaža in poštnina", "Drugo"]
+    };
+
+    let finTip = "prihodek";
+    let finUrejanje = null;
+    let racTip = "Račun";
+    let racPostavke = [];
+    let racUrejanje = null;
+
+    function danesIso() {
+      const d = new Date();
+      return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    }
+
+    function datumSlo(iso) {
+      const d = String(iso).split("-");
+      return d.length === 3 ? Number(d[2]) + ". " + Number(d[1]) + ". " + d[0] : String(iso);
+    }
+
+    function steviloIzBesedila(besedilo) {
+      let b = String(besedilo).trim().replace(/\s/g, "");
+      if (b.includes(",") && b.includes(".")) { b = b.replace(/\./g, ""); }
+      const v = Number(b.replace(",", "."));
+      return Number.isFinite(v) ? v : 0;
+    }
+
+    function finPreklopiPanel(id) {
+      document.querySelectorAll(".fin-panel").forEach(function(p) {
+        p.classList.toggle("active", p.id === id);
+      });
+      document.querySelectorAll(".subtabs button").forEach(function(b) {
+        b.classList.toggle("active", b.dataset.fin === id);
+      });
+    }
+
+    /* Prihodki in odhodki */
+
+    function finNastaviTip(tip) {
+      finTip = tip;
+      document.getElementById("finTipPrihodek").classList.toggle("active", tip === "prihodek");
+      document.getElementById("finTipOdhodek").classList.toggle("active", tip === "odhodek");
+
+      const izbira = document.getElementById("finKategorija");
+      izbira.innerHTML = "";
+      finKategorije[tip].forEach(function(k) {
+        const o = document.createElement("option");
+        o.value = k;
+        o.textContent = k;
+        izbira.appendChild(o);
+      });
+    }
+
+    function finPonastaviVnos() {
+      finUrejanje = null;
+      document.getElementById("finDatum").value = danesIso();
+      document.getElementById("finOpis").value = "";
+      document.getElementById("finZnesek").value = "";
+      document.getElementById("finVnosNaslov").textContent = "Prihodek ali odhodek";
+      finNastaviTip("prihodek");
+    }
+
+    function finShraniVnos() {
+      const znesek = steviloIzBesedila(document.getElementById("finZnesek").value);
+      const datum = document.getElementById("finDatum").value;
+
+      if (!(znesek > 0) || !datum) {
+        prikaziSporocilo("Vpiši datum in znesek (večji od 0).");
+        return;
+      }
+
+      const vnos = {
+        id: finUrejanje || String(Date.now()),
+        tip: finTip,
+        datum: datum,
+        kategorija: document.getElementById("finKategorija").value,
+        opis: document.getElementById("finOpis").value.trim(),
+        znesek: znesek
+      };
+
+      const vnosi = preberi("3dFinance", []);
+      const i = vnosi.findIndex(function(v) { return v.id === vnos.id; });
+
+      if (i >= 0) { vnosi[i] = vnos; } else { vnosi.push(vnos); }
+
+      if (zapisi("3dFinance", vnosi)) {
+        prikaziSporocilo("Vnos je shranjen.");
+      }
+
+      finPonastaviVnos();
+      finPrikaziVnose();
+    }
+
+    function finUrediVnos(id) {
+      const v = preberi("3dFinance", []).find(function(x) { return x.id === id; });
+      if (!v) { return; }
+
+      finUrejanje = id;
+      finNastaviTip(v.tip);
+      document.getElementById("finDatum").value = v.datum;
+      document.getElementById("finKategorija").value = v.kategorija;
+      document.getElementById("finOpis").value = v.opis;
+      document.getElementById("finZnesek").value = String(v.znesek).replace(".", ",");
+      document.getElementById("finVnosNaslov").textContent = "Urejanje vnosa";
+      window.scrollTo(0, 0);
+    }
+
+    async function finIzbrisiVnos(id) {
+      if (!(await potrdi("Ali res želiš izbrisati ta vnos?"))) { return; }
+      zapisi("3dFinance", preberi("3dFinance", []).filter(function(v) { return v.id !== id; }));
+      finPrikaziVnose();
+    }
+
+    function finPrikaziVnose() {
+      const vsi = preberi("3dFinance", []).sort(function(a, b) {
+        return a.datum < b.datum ? 1 : a.datum > b.datum ? -1 : 0;
+      });
+
+      // meseci, v katerih so vnosi (+ tekoči mesec)
+      const izbiraMesec = document.getElementById("finMesec");
+      const izbran = izbiraMesec.value || "vsi";
+      const meseci = {};
+      meseci[danesIso().slice(0, 7)] = true;
+      vsi.forEach(function(v) { meseci[v.datum.slice(0, 7)] = true; });
+
+      izbiraMesec.innerHTML = '<option value="vsi">Vsi meseci</option>';
+      Object.keys(meseci).sort().reverse().forEach(function(m) {
+        const o = document.createElement("option");
+        o.value = m;
+        o.textContent = Number(m.slice(5)) + ". " + m.slice(0, 4);
+        izbiraMesec.appendChild(o);
+      });
+      izbiraMesec.value = meseci[izbran] || izbran === "vsi" ? izbran : "vsi";
+
+      const prikaz = vsi.filter(function(v) {
+        return izbiraMesec.value === "vsi" || v.datum.slice(0, 7) === izbiraMesec.value;
+      });
+
+      let prihodki = 0;
+      let odhodki = 0;
+      prikaz.forEach(function(v) {
+        if (v.tip === "prihodek") { prihodki += v.znesek; } else { odhodki += v.znesek; }
+      });
+
+      document.getElementById("finPrihodki").textContent = denar(prihodki);
+      document.getElementById("finOdhodki").textContent = denar(odhodki);
+
+      const dobicek = document.getElementById("finDobicek");
+      dobicek.textContent = denar(prihodki - odhodki);
+      dobicek.className = prihodki - odhodki >= 0 ? "fin-plus" : "fin-minus";
+
+      const seznam = document.getElementById("finSeznam");
+
+      if (!prikaz.length) {
+        seznam.innerHTML = '<div class="empty">Ni vnosov.</div>';
+        return;
+      }
+
+      seznam.innerHTML = "";
+      prikaz.forEach(function(v) {
+        const el = document.createElement("div");
+        el.className = "fin-vrstica";
+        el.innerHTML =
+          "<div><strong>" + varnoBesedilo(v.opis || v.kategorija) + "</strong>" +
+          "<small>" + datumSlo(v.datum) + " · " + varnoBesedilo(v.kategorija) + "</small>" +
+          '<div class="history-buttons">' +
+          '<button class="secondary-button" type="button" onclick="finUrediVnos(\'' + v.id + '\')">Uredi</button>' +
+          '<button class="danger-button" type="button" onclick="finIzbrisiVnos(\'' + v.id + '\')">Izbriši</button>' +
+          "</div></div>" +
+          '<b class="' + (v.tip === "prihodek" ? "fin-plus" : "fin-minus") + '">' +
+          (v.tip === "prihodek" ? "+" : "−") + denar(v.znesek) + "</b>";
+        seznam.appendChild(el);
+      });
+    }
+
+    function finIzvoziExcel() {
+      const vnosi = preberi("3dFinance", []).sort(function(a, b) {
+        return a.datum < b.datum ? -1 : a.datum > b.datum ? 1 : 0;
+      });
+
+      if (!vnosi.length) {
+        prikaziSporocilo("Ni vnosov za izvoz.");
+        return;
+      }
+
+      const S = XLSX_STYLE;
+      const zn = valuta() === "EUR" ? S.eur : S.num;
+      const glava = ["Datum", "Vrsta", "Kategorija", "Opis", "Znesek (" + valuta() + ")"]
+        .map(function(v) { return { v: v, s: S.header }; });
+
+      const vrstice = [glava];
+      let prihodki = 0;
+      let odhodki = 0;
+
+      vnosi.forEach(function(v) {
+        if (v.tip === "prihodek") { prihodki += v.znesek; } else { odhodki += v.znesek; }
+        vrstice.push([
+          datumSlo(v.datum),
+          v.tip === "prihodek" ? "Prihodek" : "Odhodek",
+          v.kategorija,
+          v.opis,
+          { v: v.tip === "prihodek" ? v.znesek : -v.znesek, s: zn }
+        ]);
+      });
+
+      vrstice.push(["", "", "", "Prihodki", { v: prihodki, s: zn }]);
+      vrstice.push(["", "", "", "Odhodki", { v: -odhodki, s: zn }]);
+      vrstice.push(["", "", "", "Dobiček", { v: prihodki - odhodki, s: zn }]);
+
+      shraniDatoteko(
+        "finance_prihodki_odhodki.xlsx",
+        XlsxWriter.build([{ name: "Finance", rows: vrstice, cols: [14, 12, 26, 36, 16], freezeHeader: true }]),
+        XLSX_TIP
+      );
+    }
+
+    /* Račun / ponudba */
+
+    function racNastaviTip(tip) {
+      racTip = tip;
+      document.getElementById("racTipRacun").classList.toggle("active", tip === "Račun");
+      document.getElementById("racTipPonudba").classList.toggle("active", tip === "Ponudba");
+    }
+
+    function racNaslednjaStevilka() {
+      const n = preberi("3dRacunStevec", 0) + 1;
+      return new Date().getFullYear() + "-" + String(n).padStart(3, "0");
+    }
+
+    function racNov() {
+      racUrejanje = null;
+      racPostavke = [{ opis: "", kolicina: 1, cena: 0 }];
+      racNastaviTip("Račun");
+      document.getElementById("racStevilka").value = racNaslednjaStevilka();
+      document.getElementById("racDatum").value = danesIso();
+      document.getElementById("racKupec").value = "";
+      document.getElementById("racDdv").value = "0";
+      document.getElementById("racPlacilo").value = "15";
+      document.getElementById("racOpomba").value = "";
+      racPrikaziPostavke();
+    }
+
+    function racDodajPostavko(opis, kolicina, cena) {
+      racPostavke.push({ opis: opis || "", kolicina: kolicina || 1, cena: cena || 0 });
+      racPrikaziPostavke();
+    }
+
+    function racIzZgodovine() {
+      const zgodovina = preberi("3dZgodovina", []);
+
+      if (!zgodovina.length) {
+        prikaziSporocilo("V zgodovini še ni izračunov.");
+        return;
+      }
+
+      const ozadje = document.createElement("div");
+      ozadje.className = "dialog-ozadje";
+      const okno = document.createElement("div");
+      okno.className = "dialog";
+      okno.style.maxHeight = "80vh";
+      okno.style.overflowY = "auto";
+
+      const p = document.createElement("p");
+      p.textContent = "Izberi izračun, ki ga dodaš kot postavko:";
+      okno.appendChild(p);
+
+      zgodovina.forEach(function(zapis) {
+        const i = zapis.izracun;
+        const gumb = document.createElement("button");
+        gumb.type = "button";
+        gumb.className = "secondary-button";
+        gumb.style.cssText = "width:100%;margin-bottom:8px;text-align:left";
+        gumb.textContent = i.ime + " – " + denar(i.skupaj);
+        gumb.onclick = function() {
+          const kos = i.steviloIzdelkov > 0 ? i.steviloIzdelkov : 1;
+          // enotna cena = skupna cena s profitom / število kosov
+          racPostavke = racPostavke.filter(function(x) { return x.opis || x.cena; });
+          racDodajPostavko(i.ime, kos, Math.round(i.skupaj / kos * 100) / 100);
+          ozadje.remove();
+        };
+        okno.appendChild(gumb);
+      });
+
+      const zapri = document.createElement("button");
+      zapri.type = "button";
+      zapri.className = "secondary-button";
+      zapri.textContent = "Prekliči";
+      zapri.onclick = function() { ozadje.remove(); };
+      okno.appendChild(zapri);
+
+      ozadje.onclick = function(e) { if (e.target === ozadje) { ozadje.remove(); } };
+      ozadje.appendChild(okno);
+      document.body.appendChild(ozadje);
+    }
+
+    function racPrikaziPostavke() {
+      const kje = document.getElementById("racPostavke");
+      kje.innerHTML = "";
+
+      racPostavke.forEach(function(x, i) {
+        const vrstica = document.createElement("div");
+        vrstica.className = "fin-postavka";
+        vrstica.innerHTML =
+          '<input type="text" placeholder="Opis" aria-label="Opis" value="' + varnoBesedilo(x.opis) + '">' +
+          '<input type="text" inputmode="decimal" placeholder="Kos" aria-label="Količina" value="' + String(x.kolicina).replace(".", ",") + '">' +
+          '<input type="text" inputmode="decimal" placeholder="Cena" aria-label="Cena na kos" value="' + String(x.cena).replace(".", ",") + '">' +
+          '<button type="button" class="odstrani" aria-label="Odstrani postavko">×</button>';
+
+        const polja = vrstica.querySelectorAll("input");
+        polja[0].oninput = function() { x.opis = polja[0].value; };
+        polja[1].oninput = function() { x.kolicina = steviloIzBesedila(polja[1].value); racSestej(); };
+        polja[2].oninput = function() { x.cena = steviloIzBesedila(polja[2].value); racSestej(); };
+        vrstica.querySelector("button").onclick = function() {
+          racPostavke.splice(i, 1);
+          racPrikaziPostavke();
+        };
+
+        kje.appendChild(vrstica);
+      });
+
+      racSestej();
+    }
+
+    function racSestej() {
+      const osnova = racPostavke.reduce(function(s, x) { return s + x.kolicina * x.cena; }, 0);
+      const ddv = osnova * steviloIzBesedila(document.getElementById("racDdv").value) / 100;
+
+      document.getElementById("racOsnova").textContent = denar(osnova);
+      document.getElementById("racDdvZnesek").textContent = denar(ddv);
+      document.getElementById("racSkupaj").textContent = denar(osnova + ddv);
+
+      return { osnova: osnova, ddv: ddv, skupaj: osnova + ddv };
+    }
+
+    function racPodatki() {
+      return {
+        id: racUrejanje || String(Date.now()),
+        tip: racTip,
+        stevilka: document.getElementById("racStevilka").value.trim(),
+        datum: document.getElementById("racDatum").value,
+        kupec: document.getElementById("racKupec").value.trim(),
+        ddv: steviloIzBesedila(document.getElementById("racDdv").value),
+        rok: steviloIzBesedila(document.getElementById("racPlacilo").value),
+        opomba: document.getElementById("racOpomba").value.trim(),
+        postavke: racPostavke.map(function(x) { return { opis: x.opis, kolicina: x.kolicina, cena: x.cena }; }),
+        valuta: valuta()
+      };
+    }
+
+    function racShrani() {
+      const d = racPodatki();
+
+      if (!d.postavke.some(function(x) { return x.opis && x.kolicina * x.cena > 0; })) {
+        prikaziSporocilo("Dodaj vsaj eno postavko z opisom in ceno.");
+        return false;
+      }
+
+      const dokumenti = preberi("3dRacuni", []);
+      const i = dokumenti.findIndex(function(x) { return x.id === d.id; });
+
+      if (i >= 0) {
+        dokumenti[i] = d;
+      } else {
+        dokumenti.unshift(d);
+        zapisi("3dRacunStevec", preberi("3dRacunStevec", 0) + 1);
+      }
+
+      racUrejanje = d.id;
+
+      if (zapisi("3dRacuni", dokumenti.slice(0, 100))) {
+        prikaziSporocilo("Dokument je shranjen.");
+      }
+
+      racPrikaziSeznam();
+      return true;
+    }
+
+    function racOdpri(id) {
+      const d = preberi("3dRacuni", []).find(function(x) { return x.id === id; });
+      if (!d) { return; }
+
+      racUrejanje = d.id;
+      racPostavke = d.postavke.map(function(x) { return { opis: x.opis, kolicina: x.kolicina, cena: x.cena }; });
+      racNastaviTip(d.tip);
+      document.getElementById("racStevilka").value = d.stevilka;
+      document.getElementById("racDatum").value = d.datum;
+      document.getElementById("racKupec").value = d.kupec;
+      document.getElementById("racDdv").value = String(d.ddv).replace(".", ",");
+      document.getElementById("racPlacilo").value = String(d.rok);
+      document.getElementById("racOpomba").value = d.opomba;
+      racPrikaziPostavke();
+      window.scrollTo(0, 0);
+    }
+
+    async function racIzbrisi(id) {
+      if (!(await potrdi("Ali res želiš izbrisati ta dokument?"))) { return; }
+      zapisi("3dRacuni", preberi("3dRacuni", []).filter(function(x) { return x.id !== id; }));
+      if (racUrejanje === id) { racUrejanje = null; }
+      racPrikaziSeznam();
+    }
+
+    function racDodajVPrihodke(id) {
+      const d = preberi("3dRacuni", []).find(function(x) { return x.id === id; });
+      if (!d) { return; }
+
+      const osnova = d.postavke.reduce(function(s, x) { return s + x.kolicina * x.cena; }, 0);
+      const vnosi = preberi("3dFinance", []);
+
+      vnosi.push({
+        id: String(Date.now()),
+        tip: "prihodek",
+        datum: d.datum || danesIso(),
+        kategorija: "Prodaja",
+        opis: d.tip + " " + d.stevilka + (d.kupec ? " – " + d.kupec.split("\n")[0] : ""),
+        znesek: osnova * (1 + d.ddv / 100)
+      });
+
+      if (zapisi("3dFinance", vnosi)) {
+        prikaziSporocilo("Dodano med prihodke.");
+      }
+      finPrikaziVnose();
+    }
+
+    function racPrikaziSeznam() {
+      const kje = document.getElementById("racSeznam");
+      const dokumenti = preberi("3dRacuni", []);
+
+      if (!dokumenti.length) {
+        kje.innerHTML = '<div class="empty">Še ni shranjenih dokumentov.</div>';
+        return;
+      }
+
+      kje.innerHTML = "";
+      dokumenti.forEach(function(d) {
+        const skupaj = d.postavke.reduce(function(s, x) { return s + x.kolicina * x.cena; }, 0) * (1 + d.ddv / 100);
+        const el = document.createElement("div");
+        el.className = "fin-vrstica";
+        el.innerHTML =
+          "<div><strong>" + varnoBesedilo(d.tip) + " " + varnoBesedilo(d.stevilka) + "</strong>" +
+          "<small>" + datumSlo(d.datum) + " · " + varnoBesedilo(d.kupec.split("\n")[0] || "brez kupca") + "</small>" +
+          '<div class="history-buttons">' +
+          '<button class="primary-button" type="button" onclick="racOdpri(\'' + d.id + '\')">Odpri</button>' +
+          '<button class="secondary-button" type="button" onclick="racDodajVPrihodke(\'' + d.id + '\')">V prihodke</button>' +
+          '<button class="danger-button" type="button" onclick="racIzbrisi(\'' + d.id + '\')">Izbriši</button>' +
+          "</div></div><b>" + denar(skupaj) + "</b>";
+        kje.appendChild(el);
+      });
+    }
+
+    function racNatisni() {
+      const d = racPodatki();
+      const veljavne = d.postavke.filter(function(x) { return x.opis || x.cena; });
+
+      if (!veljavne.length) {
+        prikaziSporocilo("Dodaj vsaj eno postavko.");
+        return;
+      }
+
+      const osnova = veljavne.reduce(function(s, x) { return s + x.kolicina * x.cena; }, 0);
+      const ddv = osnova * d.ddv / 100;
+      const podjetje = document.getElementById("imePodjetja").value.trim();
+      const jeRacun = d.tip === "Račun";
+
+      let rok = "";
+      if (jeRacun && d.datum) {
+        const r = new Date(d.datum);
+        r.setDate(r.getDate() + d.rok);
+        rok = r.getFullYear() + "-" + String(r.getMonth() + 1).padStart(2, "0") + "-" + String(r.getDate()).padStart(2, "0");
+      }
+
+      const vrstice = veljavne.map(function(x) {
+        return "<tr><td>" + varnoBesedilo(x.opis) + "</td><td>" + String(x.kolicina).replace(".", ",") +
+          "</td><td>" + denar(x.cena) + "</td><td>" + denar(x.kolicina * x.cena) + "</td></tr>";
+      }).join("");
+
+      document.getElementById("tiskPovrsina").innerHTML =
+        '<div class="racun-tisk">' +
+        "<h1>" + varnoBesedilo(d.tip) + " št. " + varnoBesedilo(d.stevilka) + "</h1>" +
+        "<div>" + (podjetje ? "<strong>" + varnoBesedilo(podjetje) + "</strong><br>" : "") +
+        "Datum: " + datumSlo(d.datum) + (rok ? "<br>Rok plačila: " + datumSlo(rok) : "") + "</div>" +
+        '<p style="margin-top:20px"><strong>Kupec</strong><br>' + varnoBesedilo(d.kupec).replace(/\n/g, "<br>") + "</p>" +
+        "<table><thead><tr><th>Opis</th><th>Količina</th><th>Cena</th><th>Znesek</th></tr></thead><tbody>" + vrstice + "</tbody></table>" +
+        '<div class="skupaj"><div><span>Osnova</span><span>' + denar(osnova) + "</span></div>" +
+        "<div><span>DDV (" + String(d.ddv).replace(".", ",") + " %)</span><span>" + denar(ddv) + "</span></div>" +
+        '<div class="za-placilo"><span>' + (jeRacun ? "Za plačilo" : "Skupaj") + "</span><span>" + denar(osnova + ddv) + "</span></div></div>" +
+        (d.opomba ? "<p>" + varnoBesedilo(d.opomba) + "</p>" : "") +
+        "</div>";
+
+      document.body.classList.add("tiskanje");
+      window.addEventListener("afterprint", function() {
+        document.body.classList.remove("tiskanje");
+      }, { once: true });
+      window.print();
+    }
+
+    document.querySelectorAll(".subtabs button").forEach(function(b) {
+      b.addEventListener("click", function() { finPreklopiPanel(b.dataset.fin); });
+    });
+
+    ["racDdv", "racPlacilo"].forEach(function(id) {
+      document.getElementById(id).addEventListener("input", racSestej);
+    });
+
+    function finInit() {
+      finPonastaviVnos();
+      finPrikaziVnose();
+      racNov();
+      racPrikaziSeznam();
     }
 
     function varnoBesedilo(besedilo) {
@@ -2461,6 +3247,7 @@
     naloziShranjeneNastavitve();
     nastaviModeliranje(false);
     prikaziZgodovino();
+    finInit();
   </script>
   <!--@SW@-->
 </body>
