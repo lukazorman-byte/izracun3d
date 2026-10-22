@@ -1,0 +1,1566 @@
+[
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 178/2002",
+  "vsebina": "Splošna načela živilske zakonodaje, EFSA, sledljivost (čl. 18), umik in odpoklic (čl. 19), odgovornost izvajalcev (čl. 17)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Velja za vsa živila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 852/2004",
+  "vsebina": "Higiena živil: GHP, postopki na podlagi načel HACCP (čl. 5), registracija obratov (čl. 6), usposabljanje (Priloga II, pogl. XII)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Osnova za HACCP, velja za vse subjekte",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 853/2004",
+  "vsebina": "Posebna higienska pravila za živila živalskega izvora, odobritev obratov (čl. 4), identifikacijska oznaka (čl. 5), Priloga III (oddelki po vrstah živil)",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "Izdelek vsebuje ali je iz živil živalskega izvora",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (EU) 2017/625",
+  "vsebina": "Uradni nadzori, registracija in odobritev obratov, vzorčenje, uvoz/izvoz",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Določa nadzor UVHVVR in drugih inšpekcij",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Izvedbena uredba (EU) 2019/627",
+  "vsebina": "Enotni praktični ukrepi za uradne kontrole proizvodov živalskega izvora (poleg ostalega pregled mesa, Trichinella)",
+  "oznake": [
+   "meat",
+   "fish",
+   "egg",
+   "milk"
+  ],
+  "zakaj": "Uradne kontrole mesa, rib, jajc, mleka",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 2073/2005",
+  "vsebina": "Mikrobiološka merila za živila: merila varnosti živil in higiene procesa",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Določa Listeria, Salmonella, E. coli, Cronobacter, histamin in drugo",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 2160/2003",
+  "vsebina": "Nadzor salmonele in drugih zoonotskih povzročiteljev v prvotni proizvodnji in živilih",
+  "oznake": [
+   "meat",
+   "egg"
+  ],
+  "zakaj": "Salmonella v perutnini, jajcih",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Izvedbena uredba (EU) št. 931/2011",
+  "vsebina": "Zahteve glede sledljivosti za živila živalskega izvora (podatki ob dobavi)",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "Sledljivost živil živalskega izvora",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 1069/2009 in Uredba (EU) št. 142/2011",
+  "vsebina": "Stranski živalski proizvodi, kategorije 1/2/3, ravnanje z odpadki iz obrata",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "Odpadki živalskega izvora",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 1099/2009",
+  "vsebina": "Zaščita živali ob usmrtitvi",
+  "oznake": [
+   "meat"
+  ],
+  "zakaj": "Klanje",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Delegirana uredba (EU) 2019/625",
+  "vsebina": "Zahteve za vstop pošiljk živil živalskega izvora v EU",
+  "oznake": [
+   "animal",
+   "export"
+  ],
+  "zakaj": "Uvoz / izvoz proizvodov živalskega izvora (preveriti smer in državo)",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Direktiva (EU) 2020/2184",
+  "vsebina": "Kakovost vode, namenjene za human porabo (pitna voda); osnova za zahteve glede vode v obratu",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Voda v proizvodnji mora biti pitna (852/2004 Priloga II)",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (EU) št. 1169/2011",
+  "vsebina": "Informacije o živilih: obvezni podatki, 14 alergenov (Priloga II), hranilna vrednost, poreklo, rok (Priloge)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Označevanje vseh predpakiranih živil",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (ES) št. 1924/2006",
+  "vsebina": "Prehranske in zdravstvene trditve na živilih (seznam dovoljenih)",
+  "oznake": [
+   "claims",
+   "supp"
+  ],
+  "zakaj": "Izdelek uporablja trditve",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (ES) št. 1925/2006",
+  "vsebina": "Dodajanje vitaminov, mineralov in drugih snovi živilom",
+  "oznake": [
+   "supp",
+   "infant",
+   "claims"
+  ],
+  "zakaj": "Obogatena živila / dopolnila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Izvedbena uredba (EU) št. 1337/2013",
+  "vsebina": "Pravila o označevanju porekla za sveže, ohlajeno in zamrznjeno meso svinj, ovc, koz in perutnine",
+  "oznake": [
+   "meat"
+  ],
+  "zakaj": "Označba države rejalnice/zakola",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (ES) št. 1760/2000, naslov II",
+  "vsebina": "Označevanje govejega mesa, sledljivost goved",
+  "oznake": [
+   "meat"
+  ],
+  "zakaj": "Goveje meso (preveriti veljavno različico)",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (EU) št. 1379/2013",
+  "vsebina": "Skupna ureditev trgov za ribiške proizvode in proizvode iz akvakulture: obvezno označevanje (komercialno ime, znanstveno ime, način proizvodnje, ribolovno območje)",
+  "oznake": [
+   "fish"
+  ],
+  "zakaj": "Ribe in školjke",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (EU) št. 1308/2013",
+  "vsebina": "Skupna ureditev trgov kmetijskih proizvodov: trženjski standardi (mleko, jajca, med, olje, sadje/zelenjava, vino), standardi sestave in poimenovanja",
+  "oznake": [
+   "milk",
+   "egg",
+   "honey",
+   "oil",
+   "fruitveg",
+   "alcohol",
+   "meat"
+  ],
+  "zakaj": "Sektorski trženjski standardi",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (EU) 2018/848",
+  "vsebina": "Ekološka pridelava in označevanje ekoloških proizvodov",
+  "oznake": [
+   "bio"
+  ],
+  "zakaj": "Izdelek se trži kot ekološki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (EU) 2024/1143",
+  "vsebina": "Geografske označbe za vino, žgane pijače in kmetijske proizvode (nadomešča Uredbo 1151/2012)",
+  "oznake": [
+   "dop"
+  ],
+  "zakaj": "ZOP/ZGO/ZTP: specifikacija in kontrola",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Direktiva 2011/83/EU",
+  "vsebina": "Pravice potrošnikov pri prodaji na daljavo (poleg čl. 14 Uredbe 1169/2011)",
+  "oznake": [
+   "online"
+  ],
+  "zakaj": "Spletna prodaja",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva Sveta 2001/110/ES (kot spremenjena z Direktivo (EU) 2024/1438)",
+  "vsebina": "Med: sestava, označevanje, kakovostni parametri",
+  "oznake": [
+   "honey"
+  ],
+  "zakaj": "Med",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva Sveta 2001/112/ES (kot spremenjena z Direktivo (EU) 2024/1438)",
+  "vsebina": "Sadni sokovi in podobni izdelki: sestava, označevanje, dodatki",
+  "oznake": [
+   "juice"
+  ],
+  "zakaj": "Sokovi in nektarji",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva Sveta 2001/113/ES (kot spremenjena z Direktivo (EU) 2024/1438)",
+  "vsebina": "Marmelade, džemi, želeji, kostanjev pire",
+  "oznake": [
+   "fruitveg"
+  ],
+  "zakaj": "Sadni namazi",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva 2000/36/ES",
+  "vsebina": "Kakavovi in čokoladni izdelki",
+  "oznake": [
+   "choc"
+  ],
+  "zakaj": "Čokolada",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva 2009/54/ES",
+  "vsebina": "Izkoriščanje in trženje naravnih mineralnih voda",
+  "oznake": [
+   "drink"
+  ],
+  "zakaj": "Mineralne in izvirske vode (če velja)",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva 2002/46/ES",
+  "vsebina": "Prehranska dopolnila",
+  "oznake": [
+   "supp"
+  ],
+  "zakaj": "Dopolnila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Uredba (EU) št. 609/2013",
+  "vsebina": "Živila za dojenčke in majhne otroke, živila za posebne zdravstvene namene, popolni nadomestki prehrane",
+  "oznake": [
+   "infant"
+  ],
+  "zakaj": "Posebne skupine",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Delegirana uredba (EU) 2016/127",
+  "vsebina": "Zahteve za začetne in nadaljevalne formule za dojenčke",
+  "oznake": [
+   "infant"
+  ],
+  "zakaj": "Formule za dojenčke",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Delegirana uredba (EU) 2022/2104",
+  "vsebina": "Trženjski standardi za oljčno olje",
+  "oznake": [
+   "oil"
+  ],
+  "zakaj": "Oljčno olje",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Uredba (EU) 2019/787",
+  "vsebina": "Definicija, opis, predstavitev in označevanje žganih pijač",
+  "oznake": [
+   "alcohol"
+  ],
+  "zakaj": "Žgane pijače",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Uredba (EU) št. 1308/2013, del II, naslov II (vino)",
+  "vsebina": "Ureditev vinskega sektorja, enološki postopki, označevanje vina",
+  "oznake": [
+   "alcohol"
+  ],
+  "zakaj": "Vino",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Uredba (ES) št. 1224/2009 in Uredba (ES) št. 1005/2008",
+  "vsebina": "Nadzor ribištva, sledljivost, preprečevanje nezakonitega ribolova (IUU)",
+  "oznake": [
+   "fish"
+  ],
+  "zakaj": "Ribe: sledljivost od ulova",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Uredba (EU) 2019/649",
+  "vsebina": "Največja vsebnost industrijskih trans maščob (2 g/100 g maščobe)",
+  "oznake": [
+   "trans"
+  ],
+  "zakaj": "Pekarski, slaščičarski, maščobni izdelki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Uredba (EU) 2023/1115 (EUDR)",
+  "vsebina": "Proizvodi, ki ne povzročajo krčenja gozdov (kakav, soja, palmovo olje, kava, goveje meso); datum uporabe je bil preložen, preveriti aktualni datum",
+  "oznake": [
+   "eudr"
+  ],
+  "zakaj": "Sestavine, ki so v dosegu EUDR",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (ES) št. 1333/2008",
+  "vsebina": "Aditivi (E-številke): dovoljene vrste in kategorije živil (Prilogi II in III z unijskima seznamoma)",
+  "oznake": [
+   "add"
+  ],
+  "zakaj": "Uporaba aditivov",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredbe (ES) št. 1331/2008, 1332/2008, 1334/2008",
+  "vsebina": "Enotni postopek odobritve, encimi in arome",
+  "oznake": [
+   "add"
+  ],
+  "zakaj": "Encimi, arome",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (EU) 2023/915",
+  "vsebina": "Največje vsebnosti nekaterih kontaminantov (mikotoksini, težke kovine, PAH, 3-MCPD, nitrati …); nadomešča Uredbo (ES) 1881/2006",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Kontaminanti v vseh živilih",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (ES) št. 396/2005",
+  "vsebina": "Mejne vrednosti ostankov pesticidov v živilih rastlinskega in živalskega izvora",
+  "oznake": [
+   "plant",
+   "fruitveg",
+   "cereal",
+   "honey",
+   "drink"
+  ],
+  "zakaj": "Rastlinske surovine",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (EU) št. 37/2010",
+  "vsebina": "Farmakološko aktivne snovi in največje mejne vrednosti ostankov v živilih živalskega izvora",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "Veterinarski ostanki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (EU) 2017/2158",
+  "vsebina": "Ukrepi za zmanjšanje vsebnosti akrilamida v živilih (referenčne vrednosti)",
+  "oznake": [
+   "acryl"
+  ],
+  "zakaj": "Pečeni, cvrti, praženi izdelki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba Sveta (Euratom) 2016/52",
+  "vsebina": "Največje dovoljene ravni radioaktivne kontaminacije živil po jedrski nesreči",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Splošno",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (EU) 2015/2283",
+  "vsebina": "Novi živili: dovoljenje in seznam Unije",
+  "oznake": [
+   "novel"
+  ],
+  "zakaj": "Nova živila / sestavine",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredbi (ES) št. 1829/2003 in 1830/2003",
+  "vsebina": "Gensko spremenjena živila: dovoljenje, označevanje (prag 0,9 %), sledljivost",
+  "oznake": [
+   "gmo"
+  ],
+  "zakaj": "GSO",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (ES) št. 1935/2004",
+  "vsebina": "Materiali in izdelki, namenjeni za stik z živili: splošne zahteve, sledljivost, izjava o skladnosti",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Embalaža, oprema, pripomočki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (ES) št. 2023/2006",
+  "vsebina": "Dobra proizvodna praksa za materiale v stiku z živili",
+  "oznake": [
+   "pack",
+   "plastic"
+  ],
+  "zakaj": "Embalaža in tisk",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (EU) št. 10/2011",
+  "vsebina": "Plastični materiali v stiku z živili: migracijske meje, Unijski seznam",
+  "oznake": [
+   "plastic"
+  ],
+  "zakaj": "Plastična embalaža",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (EU) 2025/40 (PPWR)",
+  "vsebina": "Embalaža in odpadna embalaža: trajnostnost, označevanje, recikliranje; uporaba od 12. 8. 2026",
+  "oznake": [
+   "pack"
+  ],
+  "zakaj": "Lastna embalaža",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex Alimentarius CXC 1-1969 (Splošna načela higiene živil, rev. 2020)",
+  "vsebina": "Osnova za HACCP in GHP, 12 korakov HACCP",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Mednarodna referenca",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CXC 58-2005",
+  "vsebina": "Higienska praksa za meso",
+  "oznake": [
+   "meat"
+  ],
+  "zakaj": "Meso",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CXC 57-2004",
+  "vsebina": "Higienska praksa za mleko in mlečne izdelke",
+  "oznake": [
+   "milk"
+  ],
+  "zakaj": "Mleko",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CXC 52-2003",
+  "vsebina": "Higienska praksa za ribe in ribje izdelke",
+  "oznake": [
+   "fish"
+  ],
+  "zakaj": "Ribe",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CXC 53-2003",
+  "vsebina": "Higienska praksa za sveže sadje in zelenjavo",
+  "oznake": [
+   "fruitveg"
+  ],
+  "zakaj": "Sadje in zelenjava",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CXC 75-2015",
+  "vsebina": "Higienska praksa za živila z nizko vlago",
+  "oznake": [
+   "cereal",
+   "choc",
+   "supp"
+  ],
+  "zakaj": "Žita, kakav, oreščki, dopolnila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 22000:2018",
+  "vsebina": "Sistem vodenja varnosti hrane",
+  "oznake": [
+   "std_iso22000",
+   "std_fssc"
+  ],
+  "zakaj": "Izbrani standard",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "IFS Food (različica 8)",
+  "vsebina": "Shema GFSI: zahteve za proizvajalce živil",
+  "oznake": [
+   "std_ifs"
+  ],
+  "zakaj": "Izbrani standard",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "BRCGS Food Safety (izdaja 9)",
+  "vsebina": "Shema GFSI: zahteve za proizvajalce živil",
+  "oznake": [
+   "std_brc"
+  ],
+  "zakaj": "Izbrani standard",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 20976-1",
+  "vsebina": "Mikrobiološki izzivni testi (validacija roka uporabnosti)",
+  "oznake": [
+   "proto"
+  ],
+  "zakaj": "Prototip",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o varni hrani in krmi (ZVHK, Ur. l. RS 100/25)",
+  "vsebina": "Varnost živil, krme ter materialov in izdelkov v stiku z živili; uradni nadzor in kazni; izvaja več uredb EU (veljavnost od 19. 12. 2025, uporaba od 1. 1. 2026)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Osrednji slovenski zakon o varnosti hrane",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o hrani (ZHra, Ur. l. RS 100/25)",
+  "vsebina": "Označevanje kmetijskih pridelkov in živil, sheme kakovosti, preskrba s hrano in izvajanje uredb EU o hrani (uporaba od 1. 1. 2026)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Označevanje in kakovost hrane",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o zdravstveni ustreznosti živil in izdelkov ter snovi, ki prihajajo v stik z živili (ZZUZIS, Ur. l. RS 52/00, 42/02, 47/04, 100/25)",
+  "vsebina": "Zdravstvena ustreznost živil, aditivov in materialov v stiku z živili; zdravstveni nadzor (spremenjen z ZVHK)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Zdravstvena ustreznost živil",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o zdravju živali (ZZdrŽiv, Ur. l. RS 100/25)",
+  "vsebina": "Preprečevanje in obvladovanje bolezni živali, ki se prenašajo na živali ali ljudi; izvaja Uredbo (EU) 2016/429 in Uredbo (EU) 2017/625 (uporaba od 19. 12. 2025)",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "Živali in živila živalskega izvora",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o veterinarskih merilih skladnosti (ZVMS, Ur. l. RS 93/05, 90/12, 23/13, 40/14, 22/18, 100/25)",
+  "vsebina": "Veterinarska merila skladnosti: odobritev objektov, veterinarski nadzor, živila živalskega izvora",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "UVHVVR in veterinarski nadzor",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o zaščiti živali (ZZZiv)",
+  "vsebina": "Zaščita živali pri reji, prevozu in zakolu",
+  "oznake": [
+   "meat"
+  ],
+  "zakaj": "Zakol in prevoz živali",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o varstvu potrošnikov (ZVPot-1, Ur. l. RS 130/22)",
+  "vsebina": "Pravice potrošnikov, informacije, odgovornost trgovcev; prenaša direktive o pravicah potrošnikov (2011/83/EU, 2019/2161)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Trženje in prodaja potrošnikom",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o inšpekcijskem nadzoru (ZIN)",
+  "vsebina": "Postopki inšpekcij (UVHVVR, Tržni inšpektorat RS, Zdravstveni inšpektorat RS)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Inšpekcijski nadzor",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o varstvu okolja (ZVO-2, Ur. l. RS 44/22)",
+  "vsebina": "Varstvo okolja, odpadki, razširjena odgovornost proizvajalca",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Odpadki in okoljske zahteve",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Uredba o embalaži in odpadni embalaži (Ur. l. RS 54/21, 208/21, 120/22)",
+  "vsebina": "Dajanje embalaže v promet, ravnanje z odpadno embalažo (nadomešča Uredbo o ravnanju z embalažo in odpadno embalažo)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Embalaža in odpadna embalaža",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Uredba o pitni vodi (Ur. l. RS 61/23)",
+  "vsebina": "Zahteve za pitno vodo in spremljanje (nadomešča Pravilnik o pitni vodi; prenaša Direktivo (EU) 2020/2184)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Voda v obratu",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o gostinstvu (ZGos-1, Ur. l. RS 77/25)",
+  "vsebina": "Gostinska dejavnost, vrste gostinskih obratov in pogoji delovanja (uporaba od 1. 1. 2026)",
+  "oznake": [
+   "caterer"
+  ],
+  "zakaj": "Gostinstvo in catering",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o kmetijstvu (ZKme-1) in predpisi o dopolnilnih dejavnostih na kmetiji",
+  "vsebina": "Predelava in prodaja na kmetiji, dopolnilna dejavnost, vpis v register",
+  "oznake": [
+   "direct"
+  ],
+  "zakaj": "Predelava in prodaja na kmetiji",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Uredba o ekološki pridelavi in predelavi kmetijskih pridelkov in živil",
+  "vsebina": "Izvajanje Uredbe (EU) 2018/848 v Sloveniji: ekološka pridelava, predelava, označevanje, kontrola",
+  "oznake": [
+   "bio"
+  ],
+  "zakaj": "Ekološki izdelki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Pravilnik o ekološki pridelavi in predelavi kmetijskih pridelkov oziroma živil",
+  "vsebina": "Podrobnejša pravila za ekološko pridelavo in predelavo",
+  "oznake": [
+   "bio"
+  ],
+  "zakaj": "Ekološki izdelki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o ravnanju z gensko spremenjenimi organizmi (ZRGSO)",
+  "vsebina": "Ravnanje z GSO in dajanje izdelkov z GSO na trg",
+  "oznake": [
+   "gmo"
+  ],
+  "zakaj": "Živila z GSO",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o vinu (ZVin-1, Ur. l. RS 16/26)",
+  "vsebina": "Vinski sektor: pridelava, promet in označevanje vina (uporaba od 14. 3. 2026)",
+  "oznake": [
+   "alcohol"
+  ],
+  "zakaj": "Vino",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Zakon o trošarinah (ZTro-1, Ur. l. RS 47/16 in naslednje spremembe)",
+  "vsebina": "Trošarine na alkohol in alkoholne pijače; prenaša Direktivo (EU) 2020/1151",
+  "oznake": [
+   "alcohol"
+  ],
+  "zakaj": "Alkoholne pijače",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "6. Slovenska zakonodaja",
+  "predpis": "Pravilnik o prehranskih dopolnilih (Ur. l. RS 82/03, 66/13)",
+  "vsebina": "Pogoji za prehranska dopolnila v prometu; z ZVHK so predvideni novi podzakonski predpisi",
+  "oznake": [
+   "supp"
+  ],
+  "zakaj": "Prehranska dopolnila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Delegirana uredba (EU) 2019/624",
+  "vsebina": "Posebna pravila za uradne kontrole proizvodnje mesa ter proizvodnih in ponovno nasajenih območij živih školjk",
+  "oznake": [
+   "meat",
+   "fish"
+  ],
+  "zakaj": "Meso in školjke",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (EU) 2021/382",
+  "vsebina": "Sprememba prilog Uredbe 852/2004: upravljanje alergenov, razdeljevanje hrane in kultura varnosti hrane",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Kultura varnosti hrane in alergeni so obvezni del higiene",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Obvestilo Komisije 2016/C 278/01",
+  "vsebina": "Smernice za izvajanje sistemov varnosti hrane (GHP in načela HACCP), vključno s prilagodljivostjo",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Razlaga zahtev za HACCP",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (EU) 2016/429",
+  "vsebina": "Zdravje živali: prenosljive bolezni živali",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "Živali in živila živalskega izvora",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (ES) št. 1/2005",
+  "vsebina": "Zaščita živali med prevozom in z njim povezanimi postopki",
+  "oznake": [
+   "meat"
+  ],
+  "zakaj": "Prevoz živali za zakol",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (EU) 2019/1793",
+  "vsebina": "Začasno povečane uradne kontrole in izredni ukrepi ob vstopu določenih živil iz tretjih držav",
+  "oznake": [
+   "import"
+  ],
+  "zakaj": "Uvoz živil",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "1. Splošna živilska zakonodaja in higiena",
+  "predpis": "Uredba (EU) št. 952/2013",
+  "vsebina": "Carinski zakonik Unije",
+  "oznake": [
+   "import",
+   "export"
+  ],
+  "zakaj": "Uvoz in izvoz",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Izvedbena uredba (EU) št. 828/2014",
+  "vsebina": "Zahteve za informiranje potrošnikov o odsotnosti ali zmanjšani vsebnosti glutena v živilih",
+  "oznake": [
+   "claims"
+  ],
+  "zakaj": "Izdelki »brez glutena«",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Izvedbena uredba (EU) 2018/775",
+  "vsebina": "Pravila za označevanje države porekla ali kraja izvora primarne sestavine",
+  "oznake": [
+   "pack"
+  ],
+  "zakaj": "Navedba porekla",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (EU) št. 432/2012",
+  "vsebina": "Seznam dovoljenih zdravstvenih trditev za živila",
+  "oznake": [
+   "claims"
+  ],
+  "zakaj": "Zdravstvene trditve",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Direktiva 2011/91/EU",
+  "vsebina": "Označbe, ki identificirajo serijo (šaržo) živila",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Označevanje šarže",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Direktiva Sveta 76/211/EGS in Direktiva 2007/45/ES",
+  "vsebina": "Predpakiranje po masi ali prostornini, nazivne količine",
+  "oznake": [
+   "pack"
+  ],
+  "zakaj": "Predpakirana živila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Direktiva 2005/29/ES",
+  "vsebina": "Nepoštene poslovne prakse podjetij do potrošnikov",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Trženje in oglaševanje",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Direktiva 2006/114/ES",
+  "vsebina": "Zavajajoče in primerjalno oglaševanje",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Oglaševanje",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Direktiva 2000/31/ES",
+  "vsebina": "Elektronsko poslovanje in storitve informacijske družbe",
+  "oznake": [
+   "online"
+  ],
+  "zakaj": "Spletna prodaja",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Direktiva (EU) 2019/2161",
+  "vsebina": "Boljše uveljavljanje in posodobitev pravil o varstvu potrošnikov (Omnibus)",
+  "oznake": [
+   "online"
+  ],
+  "zakaj": "Spletna prodaja",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "2. Označevanje in informiranje potrošnikov",
+  "predpis": "Uredba (EU) 2020/464 in Izvedbena uredba (EU) 2021/1165",
+  "vsebina": "Ekološka pridelava: dokumentacija ter dovoljeni proizvodi in snovi",
+  "oznake": [
+   "bio"
+  ],
+  "zakaj": "Ekološki izdelki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva Sveta 2001/114/ES",
+  "vsebina": "Delno ali v celoti dehidrirano konzervirano mleko za prehrano ljudi",
+  "oznake": [
+   "milk"
+  ],
+  "zakaj": "Mleko v prahu in zgoščeno mleko",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Uredba (ES) št. 2065/2003",
+  "vsebina": "Dimne arome za uporabo v ali na živilih",
+  "oznake": [
+   "add"
+  ],
+  "zakaj": "Dimljeni izdelki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Delegirana uredba (EU) 2019/33 in Izvedbena uredba (EU) 2019/34",
+  "vsebina": "Vino: označevanje, geografske označbe, enološki postopki, prijave",
+  "oznake": [
+   "alcohol"
+  ],
+  "zakaj": "Vino",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva Sveta (EU) 2020/1151",
+  "vsebina": "Struktura trošarin na alkohol in alkoholne pijače",
+  "oznake": [
+   "alcohol"
+  ],
+  "zakaj": "Alkoholne pijače",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Izvedbena uredba (EU) 2017/2470",
+  "vsebina": "Seznam novih živil Unije",
+  "oznake": [
+   "novel"
+  ],
+  "zakaj": "Nova živila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Direktiva 2001/18/ES",
+  "vsebina": "Namerno sproščanje GSO v okolje",
+  "oznake": [
+   "gmo"
+  ],
+  "zakaj": "Živila z GSO",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "3. Sektorski predpisi po branži",
+  "predpis": "Delegirana uredba (EU) 2016/128",
+  "vsebina": "Živila za posebne zdravstvene namene",
+  "oznake": [
+   "infant"
+  ],
+  "zakaj": "Posebne skupine",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (EGS) št. 315/93",
+  "vsebina": "Postopki Skupnosti za kontaminante v hrani",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Kontaminanti",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (ES) št. 470/2009",
+  "vsebina": "Postopki za določitev mejnih vrednosti ostankov farmakološko aktivnih snovi v živilih živalskega izvora",
+  "oznake": [
+   "animal"
+  ],
+  "zakaj": "Veterinarski ostanki",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (ES) št. 1107/2009",
+  "vsebina": "Dajanje fitofarmacevtskih sredstev v promet",
+  "oznake": [
+   "plant",
+   "fruitveg",
+   "cereal"
+  ],
+  "zakaj": "Rastlinske surovine",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Uredba (EU) št. 231/2012",
+  "vsebina": "Specifikacije za aditive, navedene v Prilogah II in III Uredbe 1333/2008",
+  "oznake": [
+   "add"
+  ],
+  "zakaj": "Aditivi",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "4. Aditivi, kontaminanti, ostanki",
+  "predpis": "Direktiva 2009/32/ES",
+  "vsebina": "Ekstrakcijska topila pri proizvodnji živil in sestavin",
+  "oznake": [
+   "oil",
+   "add"
+  ],
+  "zakaj": "Topila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (ES) št. 450/2009",
+  "vsebina": "Aktivni in inteligentni materiali in izdelki v stiku z živili",
+  "oznake": [
+   "pack"
+  ],
+  "zakaj": "Aktivna embalaža",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (EU) št. 284/2011",
+  "vsebina": "Pogoji za uvoz poliamidne in melaminske kuhinjske posode s Kitajske in iz Hongkonga",
+  "oznake": [
+   "plastic",
+   "import"
+  ],
+  "zakaj": "Uvoz plastične kuhinjske posode",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (EU) 2022/1616",
+  "vsebina": "Reciklirani plastični materiali in izdelki v stiku z živili",
+  "oznake": [
+   "plastic"
+  ],
+  "zakaj": "Reciklirana plastika",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Uredba (EU) 2018/213",
+  "vsebina": "Uporaba bisfenola A v lakih in premazih ter plastičnih materialih v stiku z živili",
+  "oznake": [
+   "pack"
+  ],
+  "zakaj": "Pločevinke in premazi",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Direktiva Sveta 84/500/EGS",
+  "vsebina": "Keramični predmeti v stiku z živili",
+  "oznake": [
+   "pack"
+  ],
+  "zakaj": "Keramika",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "5. Embalaža in materiali v stiku z živili",
+  "predpis": "Direktiva (EU) 2019/904",
+  "vsebina": "Zmanjšanje vpliva nekaterih plastičnih proizvodov na okolje (plastika za enkratno uporabo)",
+  "oznake": [
+   "plastic"
+  ],
+  "zakaj": "Embalaža za enkratno uporabo",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CXS 1-1985",
+  "vsebina": "Splošni standard za označevanje predpakiranih živil",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Označevanje",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CAC/GL 60-2006",
+  "vsebina": "Načela sledljivosti kot orodje v sistemu inšpekcij in certificiranja živil",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Sledljivost",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CAC/GL 69-2008",
+  "vsebina": "Smernice za validacijo kontrolnih ukrepov varnosti hrane",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Validacija",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "Codex CXG 21-1997",
+  "vsebina": "Načela in smernice za določanje in uporabo mikrobioloških meril za živila",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Mikrobiološka merila",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 22005:2007",
+  "vsebina": "Sledljivost v verigi krme in hrane: splošna načela in zahteve",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Sledljivost",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 9001:2015",
+  "vsebina": "Sistemi vodenja kakovosti",
+  "oznake": [
+   "std_ifs",
+   "std_brc"
+  ],
+  "zakaj": "Sistem vodenja kakovosti",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO/IEC 17025",
+  "vsebina": "Splošne zahteve za usposobljenost preskuševalnih in kalibracijskih laboratorijev",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Laboratorijske analize",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "GFSI Benchmarking Requirements",
+  "vsebina": "Zahteve za priznavanje shem varnosti hrane (FSSC 22000, IFS, BRCGS)",
+  "oznake": [
+   "std_fssc",
+   "std_ifs",
+   "std_brc"
+  ],
+  "zakaj": "Priznane sheme",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Direktiva 2008/98/ES",
+  "vsebina": "Okvirna direktiva o odpadkih",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Odpadki v obratu",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Direktiva 2010/75/EU",
+  "vsebina": "Industrijske emisije (npr. klavnice, predelava mleka, večji obrati)",
+  "oznake": [
+   "meat",
+   "milk"
+  ],
+  "zakaj": "Večji obrati",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Direktiva Sveta 91/271/EGS",
+  "vsebina": "Čiščenje komunalnih odpadnih voda",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Odpadne vode iz obrata",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Uredba (ES) št. 1907/2006 (REACH)",
+  "vsebina": "Registracija, evalvacija, avtorizacija in omejevanje kemikalij",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Čistilna in razkuževalna sredstva",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Uredba (ES) št. 1272/2008 (CLP)",
+  "vsebina": "Razvrščanje, označevanje in pakiranje snovi in zmesi",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Čistilna sredstva",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Uredba (EU) št. 528/2012",
+  "vsebina": "Dajanje biocidnih proizvodov na trg in njihova uporaba (razkužila, DDD)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Razkužila in sredstva za DDD",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Uredba (ES) št. 648/2004",
+  "vsebina": "Detergenti",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Čistilna sredstva",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Uredba (EU) 2024/573",
+  "vsebina": "Fluorirani toplogredni plini (hladilni sistemi)",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Hladilne naprave",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Direktiva Sveta 89/391/EGS",
+  "vsebina": "Ukrepi za spodbujanje izboljšav varnosti in zdravja delavcev pri delu",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Varnost pri delu",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Direktiva Sveta 89/654/EGS",
+  "vsebina": "Minimalne zahteve za varnost in zdravje na delovnem mestu",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Delovni prostori",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "8. Okolje, kemikalije in varnost pri delu",
+  "predpis": "Direktiva Sveta 89/656/EGS",
+  "vsebina": "Minimalne zahteve za uporabo osebne varovalne opreme",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Varovalna oprema",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "9. Trgovanje, potrošniki in carina",
+  "predpis": "Direktiva (EU) 2019/633",
+  "vsebina": "Nepoštene trgovske prakse v verigi preskrbe s kmetijskimi in živilskimi proizvodi",
+  "oznake": [
+   "*"
+  ],
+  "zakaj": "Odnosi z dobavitelji in kupci",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 22002-1:2025 (nadomešča ISO/TS 22002-1:2009)",
+  "vsebina": "Predpogojni programi za proizvodnjo živil",
+  "oznake": [
+   "std_iso22000",
+   "std_fssc"
+  ],
+  "zakaj": "Predpogojni programi (PRP)",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 22002-100:2025",
+  "vsebina": "Skupni predpogojni programi, ki se uporabljajo skupaj s sektorskimi deli serije ISO 22002",
+  "oznake": [
+   "std_iso22000",
+   "std_fssc"
+  ],
+  "zakaj": "Predpogojni programi (PRP)",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 22002-2:2025 (nadomešča ISO/TS 22002-2)",
+  "vsebina": "Predpogojni programi za catering",
+  "oznake": [
+   "caterer"
+  ],
+  "zakaj": "Gostinstvo in catering",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 22002-4:2025 (nadomešča ISO/TS 22002-4)",
+  "vsebina": "Predpogojni programi za proizvodnjo embalaže za živila",
+  "oznake": [
+   "pack"
+  ],
+  "zakaj": "Embalaža",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "ISO 22002-5:2025 (nadomešča ISO/TS 22002-5)",
+  "vsebina": "Predpogojni programi za prevoz in skladiščenje",
+  "oznake": [
+   "std_iso22000",
+   "std_fssc"
+  ],
+  "zakaj": "Transport in skladišče",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ },
+ {
+  "skupina": "7. Standardi, smernice in sheme",
+  "predpis": "FSSC 22000 (različica 7)",
+  "vsebina": "Shema GFSI: ISO 22000:2018 + ISO 22002:2025 + dodatne zahteve sheme (12-mesečno prehodno obdobje; do izteka velja še različica 6)",
+  "oznake": [
+   "std_fssc"
+  ],
+  "zakaj": "Izbrani standard",
+  "status": "veljaven",
+  "preverjeno": "2026-10-15"
+ }
+]

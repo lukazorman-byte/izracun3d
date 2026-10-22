@@ -1,0 +1,835 @@
+[
+ {
+  "id": "p001",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Je skupina za varnost hrane imenovana, kompetentna in dokumentirana (znanje tehnologije, mikrobiologije, vzdrževanja)?",
+  "klavzula": "Codex HACCP: korak 1"
+ },
+ {
+  "id": "p002",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "So izdelki opisani (sestava, alergeni, pakiranje, rok uporabnosti, pogoji hrambe, ciljni potrošniki)?",
+  "klavzula": "Codex HACCP: korak 2"
+ },
+ {
+  "id": "p003",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Je namen uporabe in način uživanja izdelka določen (RTE, občutljive skupine)?",
+  "klavzula": "Codex HACCP: korak 3"
+ },
+ {
+  "id": "p004",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Je diagram poteka izdelan za vse korake procesa in potrjen na terenu?",
+  "klavzula": "Codex HACCP: koraka 4 in 5"
+ },
+ {
+  "id": "p005",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Je analiza nevarnosti izvedena (biološke, kemijske, fizikalne, alergeni) in vključuje vse surovine ter korake?",
+  "klavzula": "Codex HACCP: korak 6, načelo 1"
+ },
+ {
+  "id": "p006",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "So kritične kontrolne točke določene z dokumentiranim odločitvenim postopkom?",
+  "klavzula": "Codex HACCP: korak 7, načelo 2"
+ },
+ {
+  "id": "p007",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "So kritične meje določene, utemeljene in validirane?",
+  "klavzula": "Codex HACCP: korak 8, načelo 3"
+ },
+ {
+  "id": "p008",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Je monitoring CCP določen (kaj, kako, kdaj, kdo) in se izvaja z veljavno kalibrirano opremo?",
+  "klavzula": "Codex HACCP: korak 9, načelo 4"
+ },
+ {
+  "id": "p009",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "So korektivni ukrepi določeni vnaprej in se ob odstopanjih izvajajo (zadržanje izdelka, vzrok, evidenca)?",
+  "klavzula": "Codex HACCP: korak 10, načelo 5"
+ },
+ {
+  "id": "p010",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Je verifikacija načrta izvedena (pregled zapisov, analize, notranje presoje) in se načrt pregleda vsaj enkrat letno ter ob spremembah?",
+  "klavzula": "Codex HACCP: korak 11, načelo 6"
+ },
+ {
+  "id": "p011",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Je dokumentacija in evidenca vodena in dostopna (zapisi o CCP, odstopanjih, ukrepih)?",
+  "klavzula": "Codex HACCP: korak 12, načelo 7"
+ },
+ {
+  "id": "p012",
+  "standard": "haccp",
+  "podrocje": "HACCP načrt",
+  "vprasanje": "Se HACCP načrt nanaša na vse izdelke, linije in procese v obratu, vključno s spremembami receptur?",
+  "klavzula": "852/2004, čl. 5"
+ },
+ {
+  "id": "p013",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "So zgradba, prostori in razporeditev ustrezni (ločitev surovo/gotovo, čiste in nečiste poti, površine so vzdrževane in čistljive)?",
+  "klavzula": "852/2004, Priloga II, pogl. I–II; ISO/TS 22002-1:2009, pogl. 4–5"
+ },
+ {
+  "id": "p014",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je zagotovljena zadostna oskrba s pitno vodo, zrakom, paro in energijo; voda je preverjana?",
+  "klavzula": "852/2004, Priloga II, pogl. VII; ISO/TS 22002-1:2009, pogl. 6"
+ },
+ {
+  "id": "p015",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je ravnanje z odpadki urejeno (ločevanje, zabojniki, odvoz, stranski živalski proizvodi)?",
+  "klavzula": "852/2004, Priloga II, pogl. VI; ISO/TS 22002-1:2009, pogl. 7"
+ },
+ {
+  "id": "p016",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je oprema primerna za živilsko rabo, čistljiva in se preventivno vzdržuje?",
+  "klavzula": "852/2004, Priloga II, pogl. V; ISO/TS 22002-1:2009, pogl. 8"
+ },
+ {
+  "id": "p017",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "So dobavitelji in surovine nadzorovani (specifikacije, prevzem, dokumenti)?",
+  "klavzula": "ISO/TS 22002-1:2009, pogl. 9"
+ },
+ {
+  "id": "p018",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Se preprečuje navzkrižna kontaminacija (mikrobiološka, kemijska, fizikalna, alergeni)?",
+  "klavzula": "ISO/TS 22002-1:2009, pogl. 10"
+ },
+ {
+  "id": "p019",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je program čiščenja in razkuževanja dokumentiran, izveden in preverjen (ATP, brisi)?",
+  "klavzula": "ISO/TS 22002-1:2009, pogl. 11; 852/2004, Priloga II, pogl. I"
+ },
+ {
+  "id": "p020",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je program zatiranja škodljivcev (DDD) vzpostavljen, z načrtom kontrolnih točk in trendi najdb?",
+  "klavzula": "ISO/TS 22002-1:2009, pogl. 12"
+ },
+ {
+  "id": "p021",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je osebna higiena urejena (obleka, roke, zdravstveno stanje, obiskovalci, garderobe)?",
+  "klavzula": "852/2004, Priloga II, pogl. VIII; ISO/TS 22002-1:2009, pogl. 13"
+ },
+ {
+  "id": "p022",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je ravnanje z ponovno uporabo materiala (rework) opredeljeno in nadzorovano?",
+  "klavzula": "ISO/TS 22002-1:2009, pogl. 14"
+ },
+ {
+  "id": "p023",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je postopek umika in odpoklica vzpostavljen in preizkušen?",
+  "klavzula": "ISO/TS 22002-1:2009, pogl. 15; 178/2002, čl. 19"
+ },
+ {
+  "id": "p024",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "So skladiščenje in temperaturna veriga nadzorovana (FIFO, temperature, ločevanje)?",
+  "klavzula": "852/2004, Priloga II, pogl. IX; ISO/TS 22002-1:2009, pogl. 16"
+ },
+ {
+  "id": "p025",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "So vozila in transport primerni (čistoča, temperatura, ločevanje)?",
+  "klavzula": "852/2004, Priloga II, pogl. IV"
+ },
+ {
+  "id": "p026",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "So informacije o izdelku in označevanje (alergeni, rok, šarža) pravilni?",
+  "klavzula": "Uredba 1169/2011; ISO/TS 22002-1:2009, pogl. 17"
+ },
+ {
+  "id": "p027",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je zaščita hrane (food defence) obravnavana (dostop, obiskovalci, zaklepanje)?",
+  "klavzula": "ISO/TS 22002-1:2009, pogl. 18"
+ },
+ {
+  "id": "p028",
+  "standard": "prp",
+  "podrocje": "Predpogojni programi",
+  "vprasanje": "Je usposabljanje osebja načrtovano in evidentirano ter ustreza delovnemu mestu?",
+  "klavzula": "852/2004, Priloga II, pogl. XII"
+ },
+ {
+  "id": "p029",
+  "standard": "iso22000",
+  "podrocje": "Kontekst",
+  "vprasanje": "Je organizacija določila zunanje in notranje zadeve, ki vplivajo na sistem vodenja varnosti hrane?",
+  "klavzula": "4.1"
+ },
+ {
+  "id": "p030",
+  "standard": "iso22000",
+  "podrocje": "Kontekst",
+  "vprasanje": "So zainteresirane strani in njihove zahteve (kupci, organi, potrošniki) opredeljene in spremljane?",
+  "klavzula": "4.2"
+ },
+ {
+  "id": "p031",
+  "standard": "iso22000",
+  "podrocje": "Kontekst",
+  "vprasanje": "Je obseg sistema vodenja varnosti hrane dokumentiran (izdelki, procesi, lokacije)?",
+  "klavzula": "4.3"
+ },
+ {
+  "id": "p032",
+  "standard": "iso22000",
+  "podrocje": "Kontekst",
+  "vprasanje": "Je sistem vodenja varnosti hrane vzpostavljen, vzdrževan in stalno izboljševan?",
+  "klavzula": "4.4"
+ },
+ {
+  "id": "p033",
+  "standard": "iso22000",
+  "podrocje": "Vodenje",
+  "vprasanje": "Vodstvo izkazuje vodenje in zavezanost (viri, komunikacija, podpora kulturi varnosti hrane)?",
+  "klavzula": "5.1"
+ },
+ {
+  "id": "p034",
+  "standard": "iso22000",
+  "podrocje": "Vodenje",
+  "vprasanje": "Je politika varnosti hrane dokumentirana, sporočena in razumljena?",
+  "klavzula": "5.2"
+ },
+ {
+  "id": "p035",
+  "standard": "iso22000",
+  "podrocje": "Vodenje",
+  "vprasanje": "So odgovornosti in pooblastila dodeljeni; je vodja skupine za varnost hrane imenovan?",
+  "klavzula": "5.3"
+ },
+ {
+  "id": "p036",
+  "standard": "iso22000",
+  "podrocje": "Planiranje",
+  "vprasanje": "So tveganja in priložnosti ugotovljena in so določeni ukrepi?",
+  "klavzula": "6.1"
+ },
+ {
+  "id": "p037",
+  "standard": "iso22000",
+  "podrocje": "Planiranje",
+  "vprasanje": "So cilji varnosti hrane merljivi, spremljani in doseženi?",
+  "klavzula": "6.2"
+ },
+ {
+  "id": "p038",
+  "standard": "iso22000",
+  "podrocje": "Planiranje",
+  "vprasanje": "Se spremembe sistema načrtujejo na nadzorovan način?",
+  "klavzula": "6.3"
+ },
+ {
+  "id": "p039",
+  "standard": "iso22000",
+  "podrocje": "Podpora",
+  "vprasanje": "So zagotovljeni človeški viri, infrastruktura in delovno okolje?",
+  "klavzula": "7.1.2–7.1.4"
+ },
+ {
+  "id": "p040",
+  "standard": "iso22000",
+  "podrocje": "Podpora",
+  "vprasanje": "So zunanje zagotovljeni procesi, izdelki in storitve (dobavitelji) nadzorovani?",
+  "klavzula": "7.1.6"
+ },
+ {
+  "id": "p041",
+  "standard": "iso22000",
+  "podrocje": "Podpora",
+  "vprasanje": "So kompetence skupine in zaposlenih opredeljene, zagotovljene in dokazane z zapisi?",
+  "klavzula": "7.2"
+ },
+ {
+  "id": "p042",
+  "standard": "iso22000",
+  "podrocje": "Podpora",
+  "vprasanje": "So zaposleni ozaveščeni o politiki, ciljih in svojem prispevku?",
+  "klavzula": "7.3"
+ },
+ {
+  "id": "p043",
+  "standard": "iso22000",
+  "podrocje": "Podpora",
+  "vprasanje": "Je zunanja in notranja komunikacija določena (dobavitelji, kupci, organi, odpoklic)?",
+  "klavzula": "7.4"
+ },
+ {
+  "id": "p044",
+  "standard": "iso22000",
+  "podrocje": "Podpora",
+  "vprasanje": "So dokumentirane informacije nadzorovane (odobritev, različice, dostopnost, hramba)?",
+  "klavzula": "7.5"
+ },
+ {
+  "id": "p045",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "So operativno načrtovanje in nadzor vzpostavljeni?",
+  "klavzula": "8.1"
+ },
+ {
+  "id": "p046",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "So predpogojni programi vzpostavljeni, izvajani in verificirani?",
+  "klavzula": "8.2"
+ },
+ {
+  "id": "p047",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "Je sistem sledljivosti vzpostavljen in preizkušen (test sledljivosti)?",
+  "klavzula": "8.3"
+ },
+ {
+  "id": "p048",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "Je pripravljenost na izredne dogodke načrtovana in se preizkuša?",
+  "klavzula": "8.4"
+ },
+ {
+  "id": "p049",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "So predhodni koraki izvedeni (opisi surovin, izdelkov, namen uporabe, diagrami poteka)?",
+  "klavzula": "8.5.1"
+ },
+ {
+  "id": "p050",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "Je analiza nevarnosti izvedena in ažurna?",
+  "klavzula": "8.5.2"
+ },
+ {
+  "id": "p051",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "So kontrolni ukrepi validirani pred uvedbo?",
+  "klavzula": "8.5.3"
+ },
+ {
+  "id": "p052",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "Je načrt obvladovanja nevarnosti (CCP, OPRP) vzpostavljen z mejami, monitoringom in korektivnimi ukrepi?",
+  "klavzula": "8.5.4"
+ },
+ {
+  "id": "p053",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "So informacije o PRP in načrtu obvladovanja posodobljene po spremembah?",
+  "klavzula": "8.6"
+ },
+ {
+  "id": "p054",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "Je nadzor monitoringa in merilne opreme zagotovljen (kalibracije)?",
+  "klavzula": "8.7"
+ },
+ {
+  "id": "p055",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "Je verifikacija PRP in načrta obvladovanja izvedena in analizirana?",
+  "klavzula": "8.8"
+ },
+ {
+  "id": "p056",
+  "standard": "iso22000",
+  "podrocje": "Operativa",
+  "vprasanje": "Je ravnanje z neskladnimi izdelki in procesi določeno (korekcije, sprostitev, umik/odpoklic)?",
+  "klavzula": "8.9"
+ },
+ {
+  "id": "p057",
+  "standard": "iso22000",
+  "podrocje": "Vrednotenje",
+  "vprasanje": "So monitoring, meritve, analiza in vrednotenje izvedeni in rezultati uporabljeni?",
+  "klavzula": "9.1"
+ },
+ {
+  "id": "p058",
+  "standard": "iso22000",
+  "podrocje": "Vrednotenje",
+  "vprasanje": "Je notranja presoja načrtovana, izvedena in zaključena z ukrepi?",
+  "klavzula": "9.2"
+ },
+ {
+  "id": "p059",
+  "standard": "iso22000",
+  "podrocje": "Vrednotenje",
+  "vprasanje": "Je pregled vodstva izveden z vsemi vhodnimi in izhodnimi podatki?",
+  "klavzula": "9.3"
+ },
+ {
+  "id": "p060",
+  "standard": "iso22000",
+  "podrocje": "Izboljševanje",
+  "vprasanje": "So neskladnosti obravnavane s korektivnimi ukrepi in preverjanjem učinkovitosti?",
+  "klavzula": "10.1"
+ },
+ {
+  "id": "p061",
+  "standard": "iso22000",
+  "podrocje": "Izboljševanje",
+  "vprasanje": "Je sistem stalno izboljševan in posodabljan?",
+  "klavzula": "10.2–10.3"
+ },
+ {
+  "id": "p062",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "Je različica sheme FSSC 22000 pravilna in je prehod na različico 7 (ter ISO 22002:2025) načrtovan?",
+  "klavzula": "Različica sheme in prehodno obdobje"
+ },
+ {
+  "id": "p063",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "Je ocena ranljivosti za zaščito hrane (food defence) izvedena in je načrt zaščite vzpostavljen?",
+  "klavzula": "Dodatna zahteva: zaščita hrane"
+ },
+ {
+  "id": "p064",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "Je ocena ranljivosti za prevare s hrano (food fraud) izvedena z načrtom ublažitve?",
+  "klavzula": "Dodatna zahteva: prevare s hrano"
+ },
+ {
+  "id": "p065",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "Je upravljanje alergenov vzpostavljeno (matrika, ločevanje, čiščenje, označevanje, validacija)?",
+  "klavzula": "Dodatna zahteva: upravljanje alergenov"
+ },
+ {
+  "id": "p066",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "Je program okoljskega monitoringa vzpostavljen (načrt vzorčenja, trendi, ukrepi)?",
+  "klavzula": "Dodatna zahteva: okoljski monitoring"
+ },
+ {
+  "id": "p067",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "So receptura in formulacija izdelkov nadzorovani (spremembe, preverjanje sestavin, zahteve kupcev)?",
+  "klavzula": "Dodatna zahteva: formulacija izdelkov"
+ },
+ {
+  "id": "p068",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "So transport in dostava izdelkov nadzorovani (vozila, temperatura, ločevanje)?",
+  "klavzula": "Dodatna zahteva: transport in dostava"
+ },
+ {
+  "id": "p069",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "So storitve in nabavljeni materiali nadzorovani (laboratoriji, čiščenje, DDD, embalaža)?",
+  "klavzula": "Dodatna zahteva: upravljanje storitev in nabavljenih materialov"
+ },
+ {
+  "id": "p070",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "So označevanje izdelkov in tiskani materiali nadzorovani (pravilnost, alergeni, različice)?",
+  "klavzula": "Dodatna zahteva: označevanje izdelkov"
+ },
+ {
+  "id": "p071",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "Je uporaba logotipa FSSC pravilna in skladna s pravili sheme?",
+  "klavzula": "Dodatna zahteva: uporaba logotipa"
+ },
+ {
+  "id": "p072",
+  "standard": "fssc",
+  "podrocje": "Dodatne zahteve sheme",
+  "vprasanje": "Je kultura varnosti hrane vzpostavljena, merjena in izboljševana?",
+  "klavzula": "Zahteve sheme: kultura varnosti hrane"
+ },
+ {
+  "id": "p073",
+  "standard": "ifs",
+  "podrocje": "1 Vodenje in zavezanost",
+  "vprasanje": "Je politika dokumentirana, sporočena in pregledana?",
+  "klavzula": "poglavje 1"
+ },
+ {
+  "id": "p074",
+  "standard": "ifs",
+  "podrocje": "1 Vodenje in zavezanost",
+  "vprasanje": "So odgovornosti, struktura in viri zagotovljeni; je vodstvo zavezano varnosti hrane in kakovosti?",
+  "klavzula": "poglavje 1"
+ },
+ {
+  "id": "p075",
+  "standard": "ifs",
+  "podrocje": "1 Vodenje in zavezanost",
+  "vprasanje": "Je kultura varnosti hrane in kakovosti vzpostavljena in spremljana?",
+  "klavzula": "poglavje 1"
+ },
+ {
+  "id": "p076",
+  "standard": "ifs",
+  "podrocje": "1 Vodenje in zavezanost",
+  "vprasanje": "Je pregled vodstva izveden z vhodnimi in izhodnimi podatki?",
+  "klavzula": "poglavje 1"
+ },
+ {
+  "id": "p077",
+  "standard": "ifs",
+  "podrocje": "2 Sistem vodenja varnosti hrane in kakovosti",
+  "vprasanje": "Je HACCP sistem vzpostavljen in sledi načelom Codexa?",
+  "klavzula": "poglavje 2"
+ },
+ {
+  "id": "p078",
+  "standard": "ifs",
+  "podrocje": "2 Sistem vodenja varnosti hrane in kakovosti",
+  "vprasanje": "Je sistem vodenja dokumentov in zapisov vzpostavljen?",
+  "klavzula": "poglavje 2"
+ },
+ {
+  "id": "p079",
+  "standard": "ifs",
+  "podrocje": "3 Upravljanje virov",
+  "vprasanje": "So usposabljanje, higiena in zdravstveno stanje osebja urejeni?",
+  "klavzula": "poglavje 3"
+ },
+ {
+  "id": "p080",
+  "standard": "ifs",
+  "podrocje": "3 Upravljanje virov",
+  "vprasanje": "So infrastruktura, oprema in vzdrževanje primerni za varnost živil?",
+  "klavzula": "poglavje 3"
+ },
+ {
+  "id": "p081",
+  "standard": "ifs",
+  "podrocje": "4 Operativni procesi",
+  "vprasanje": "So specifikacije, nabava in odobritev dobaviteljev urejeni?",
+  "klavzula": "poglavje 4"
+ },
+ {
+  "id": "p082",
+  "standard": "ifs",
+  "podrocje": "4 Operativni procesi",
+  "vprasanje": "So razvoj izdelkov, embalaža in označevanje obvladovani?",
+  "klavzula": "poglavje 4"
+ },
+ {
+  "id": "p083",
+  "standard": "ifs",
+  "podrocje": "4 Operativni procesi",
+  "vprasanje": "So čiščenje, DDD, upravljanje alergenov, preprečevanje tujkov in transport urejeni?",
+  "klavzula": "poglavje 4"
+ },
+ {
+  "id": "p084",
+  "standard": "ifs",
+  "podrocje": "4 Operativni procesi",
+  "vprasanje": "Je sledljivost vzpostavljena in preizkušena?",
+  "klavzula": "poglavje 4"
+ },
+ {
+  "id": "p085",
+  "standard": "ifs",
+  "podrocje": "5 Meritve, analize, izboljšave",
+  "vprasanje": "So notranje presoje, preverjanje analiz in kalibracije izvedeni?",
+  "klavzula": "poglavje 5"
+ },
+ {
+  "id": "p086",
+  "standard": "ifs",
+  "podrocje": "5 Meritve, analize, izboljšave",
+  "vprasanje": "So neskladnosti, korektivni ukrepi, reklamacije ter umik in odpoklic obvladovani?",
+  "klavzula": "poglavje 5"
+ },
+ {
+  "id": "p087",
+  "standard": "ifs",
+  "podrocje": "6 Zaščita hrane in zunanje inšpekcije",
+  "vprasanje": "Je ocena groženj in načrt zaščite hrane (food defence) vzpostavljena?",
+  "klavzula": "poglavje 6"
+ },
+ {
+  "id": "p088",
+  "standard": "ifs",
+  "podrocje": "6 Zaščita hrane in zunanje inšpekcije",
+  "vprasanje": "Je ravnanje z zunanjimi inšpekcijami in njihovimi ugotovitvami urejeno?",
+  "klavzula": "poglavje 6"
+ },
+ {
+  "id": "p089",
+  "standard": "brc",
+  "podrocje": "1 Zavezanost višjega vodstva",
+  "vprasanje": "Je zavezanost vodstva izkazana, politika in cilji so določeni, pregled vodstva je izveden?",
+  "klavzula": "razdelek 1"
+ },
+ {
+  "id": "p090",
+  "standard": "brc",
+  "podrocje": "1 Zavezanost višjega vodstva",
+  "vprasanje": "Je načrt kulture varnosti hrane vzpostavljen in se izvaja?",
+  "klavzula": "razdelek 1"
+ },
+ {
+  "id": "p091",
+  "standard": "brc",
+  "podrocje": "2 Načrt varnosti hrane (HACCP)",
+  "vprasanje": "Je načrt HACCP v skladu s Codexom, z ustrezno skupino in diagrami poteka?",
+  "klavzula": "razdelek 2"
+ },
+ {
+  "id": "p092",
+  "standard": "brc",
+  "podrocje": "3 Sistem vodenja varnosti hrane in kakovosti",
+  "vprasanje": "So nadzor dokumentov, zapisi in notranje presoje vzpostavljeni?",
+  "klavzula": "razdelek 3"
+ },
+ {
+  "id": "p093",
+  "standard": "brc",
+  "podrocje": "3 Sistem vodenja varnosti hrane in kakovosti",
+  "vprasanje": "So odobritev dobaviteljev, specifikacije, neskladnosti in korektivni ukrepi urejeni?",
+  "klavzula": "razdelek 3"
+ },
+ {
+  "id": "p094",
+  "standard": "brc",
+  "podrocje": "3 Sistem vodenja varnosti hrane in kakovosti",
+  "vprasanje": "So sledljivost, reklamacije, ravnanje z incidenti ter umik in odpoklic vzpostavljeni?",
+  "klavzula": "razdelek 3"
+ },
+ {
+  "id": "p095",
+  "standard": "brc",
+  "podrocje": "4 Standardi obrata",
+  "vprasanje": "So lokacija, zasnova, tok proizvodnje, zgradba in prostori primerni?",
+  "klavzula": "razdelek 4"
+ },
+ {
+  "id": "p096",
+  "standard": "brc",
+  "podrocje": "4 Standardi obrata",
+  "vprasanje": "So oprema, vzdrževanje in higiena (čiščenje) vzpostavljeni?",
+  "klavzula": "razdelek 4"
+ },
+ {
+  "id": "p097",
+  "standard": "brc",
+  "podrocje": "4 Standardi obrata",
+  "vprasanje": "So kemijsko in fizikalno onesnaženje, odkrivanje tujkov, odpadki in DDD obvladovani?",
+  "klavzula": "razdelek 4"
+ },
+ {
+  "id": "p098",
+  "standard": "brc",
+  "podrocje": "4 Standardi obrata",
+  "vprasanje": "Sta skladiščenje in odprema/transport urejena?",
+  "klavzula": "razdelek 4"
+ },
+ {
+  "id": "p099",
+  "standard": "brc",
+  "podrocje": "5 Nadzor izdelkov",
+  "vprasanje": "So razvoj izdelka, označevanje in upravljanje alergenov urejeni?",
+  "klavzula": "razdelek 5"
+ },
+ {
+  "id": "p100",
+  "standard": "brc",
+  "podrocje": "5 Nadzor izdelkov",
+  "vprasanje": "So pristnost izdelka (zaščita pred prevarami), embalaža in analize/inšpekcije izdelkov urejene?",
+  "klavzula": "razdelek 5"
+ },
+ {
+  "id": "p101",
+  "standard": "brc",
+  "podrocje": "5 Nadzor izdelkov",
+  "vprasanje": "Je sprostitev izdelka dokumentirana?",
+  "klavzula": "razdelek 5"
+ },
+ {
+  "id": "p102",
+  "standard": "brc",
+  "podrocje": "6 Nadzor procesov",
+  "vprasanje": "So nadzor operacij, kontrola pakiranja in oznak, količin ter kalibracija merilne opreme urejeni?",
+  "klavzula": "razdelek 6"
+ },
+ {
+  "id": "p103",
+  "standard": "brc",
+  "podrocje": "7 Osebje",
+  "vprasanje": "So usposabljanje, osebna higiena, zdravstveni pregledi in zaščitna oblačila urejeni?",
+  "klavzula": "razdelek 7"
+ },
+ {
+  "id": "p104",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je dobavitelj registriran/odobren pri pristojnem organu in ima veljavna dovoljenja?",
+  "klavzula": "852/2004, čl. 6; 853/2004, čl. 4"
+ },
+ {
+  "id": "p105",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Ima dobavitelj veljaven certifikat (GFSI: FSSC 22000, IFS, BRCGS ali ISO 22000) z ustreznim obsegom?",
+  "klavzula": "Dokazilo"
+ },
+ {
+  "id": "p106",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je HACCP sistem vzpostavljen, ažuren in obvladuje nevarnosti za dobavljeni izdelek?",
+  "klavzula": "852/2004, čl. 5"
+ },
+ {
+  "id": "p107",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "So predpogojni programi (čiščenje, DDD, osebna higiena, vzdrževanje) izvedeni in dokumentirani?",
+  "klavzula": "GHP"
+ },
+ {
+  "id": "p108",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je sledljivost vzpostavljena in preizkušena (test sledljivosti)?",
+  "klavzula": "178/2002, čl. 18"
+ },
+ {
+  "id": "p109",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je postopek umika in odpoklica vzpostavljen in preizkušen?",
+  "klavzula": "178/2002, čl. 19"
+ },
+ {
+  "id": "p110",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je upravljanje alergenov urejeno (matrika, ločevanje, čiščenje, označevanje)?",
+  "klavzula": "1169/2011"
+ },
+ {
+  "id": "p111",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "So specifikacije izdelka dogovorjene in se spoštujejo (mikrobiologija, kemijski parametri)?",
+  "klavzula": "Specifikacija"
+ },
+ {
+  "id": "p112",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Se izvajajo analize izdelkov (mikrobiološke, kemijske) in so rezultati dostopni?",
+  "klavzula": "2073/2005; 2023/915"
+ },
+ {
+  "id": "p113",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je kalibracija merilne opreme (temperature, tehtnice, detektorji) izvedena?",
+  "klavzula": "Kalibracija"
+ },
+ {
+  "id": "p114",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je usposabljanje osebja evidentirano in ustrezno?",
+  "klavzula": "Usposabljanje"
+ },
+ {
+  "id": "p115",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je nadzor tujkov (steklo, kovina) vzpostavljen (detektor kovin, sita, register stekla)?",
+  "klavzula": "Tujki"
+ },
+ {
+  "id": "p116",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je transport urejen (čistoča vozil, temperatura, ločevanje)?",
+  "klavzula": "852/2004, Priloga II, pogl. IV"
+ },
+ {
+  "id": "p117",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Ima dobavitelj ocene ranljivosti za zaščito hrane in prevare s hrano?",
+  "klavzula": "Food defence in food fraud"
+ },
+ {
+  "id": "p118",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Je ravnanje z neskladnimi izdelki in korektivnimi ukrepi urejeno?",
+  "klavzula": "Neskladnosti"
+ },
+ {
+  "id": "p119",
+  "standard": "dobavitelj",
+  "podrocje": "Presoja dobavitelja",
+  "vprasanje": "Ali so ugotovitve prejšnjih presoj zaprte in učinkovite?",
+  "klavzula": "Zaprtje ukrepov"
+ }
+]

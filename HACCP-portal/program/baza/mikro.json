@@ -1,0 +1,12 @@
+[
+ {
+  "parameter": "L. monocytogenes v živilih, pripravljenih za uživanje, ki omogočajo rast",
+  "merilo": "≤ 100 cfu/g v roku uporabnosti ali odsotnost v 25 g pred odhodom iz obrata (n=5, c=0)",
+  "vir": "2073/2005, vrstica 1.2"
+ },
+ {
+  "parameter": "L. monocytogenes v živilih, ki ne omogočajo rasti (pH ≤ 4,4 ali aw ≤ 0,92 …)",
+  "merilo": "≤ 100 cfu/g",
+  "vir": "2073/2005, vrstica 1.3"
+ }
+]

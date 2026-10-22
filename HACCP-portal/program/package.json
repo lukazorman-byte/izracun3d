@@ -1,0 +1,29 @@
+{
+ "name": "haccp-sistem",
+ "version": "2.1.0",
+ "private": true,
+ "scripts": {
+  "start": "node server.js",
+  "build": "node build.js",
+  "exe": "pkg . --compress GZip",
+  "test": "node testi/run.js",
+  "lint": "node scripts/preveri.js"
+ },
+ "engines": {
+  "node": ">=18"
+ },
+ "bin": "server.js",
+ "pkg": {
+  "assets": [
+   "app/**/*",
+   "portal/**/*",
+   "baza-admin/**/*",
+   "baza/*.json",
+   "posodobitve/*.json"
+  ],
+  "targets": [
+   "node22-win-x64"
+  ],
+  "outputPath": "exe"
+ }
+}

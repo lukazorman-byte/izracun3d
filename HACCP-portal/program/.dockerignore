@@ -1,0 +1,13 @@
+exe
+podatki
+podatki-test
+node_modules
+testi
+dist
+scripts
+baza/_*
+*.bat
+*.vbs
+*.zip
+.git
+.github

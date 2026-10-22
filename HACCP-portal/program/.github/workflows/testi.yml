@@ -1,0 +1,14 @@
+# Samodejno preverjanje ob vsakem pošiljanju (GitHub Actions). Brez odvisnosti strežnika; Playwright samo za UI teste.
+name: testi
+on: [push, pull_request]
+jobs:
+  testi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm run lint
+      - run: npm install --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+      - run: npm test

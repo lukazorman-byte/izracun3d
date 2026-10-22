@@ -1,0 +1,22 @@
+[
+ {
+  "koda": "B",
+  "naziv": "Biološka"
+ },
+ {
+  "koda": "K",
+  "naziv": "Kemijska"
+ },
+ {
+  "koda": "F",
+  "naziv": "Fizikalna"
+ },
+ {
+  "koda": "P",
+  "naziv": "Parazitska"
+ },
+ {
+  "koda": "A",
+  "naziv": "Alergen"
+ }
+]

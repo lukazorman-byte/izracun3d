@@ -1,0 +1,33 @@
+// Prazni obrazci za tisk (PDF ležeče A4, Excel): evidence, mesečni listi, seznam prisotnosti.
+const OBR_VRSTE = ["temperatura", "prevzem", "hlajenje", "toplotna", "ciscenje", "higiena", "hitri_test", "bris", "ddd_obisk", "skodljivci", "zdravje", "sledljivost", "oprema", "drugo"];
+function obrazecStolpci(vrsta) {
+  const d = EV[vrsta], skrij = new Set(["obrat_id"]); const cols = [["Datum", 9], ["Ura", 5]];
+  for (const f of d.f) { if (skrij.has(f.k)) continue; const l = f.l.replace(/\s*\(.*?\)/g, "").replace(/\s+/g, " ").trim(); cols.push([l + (f.t === "bool" ? " (da/ne)" : f.t === "num" && /°C|min|%/.test(f.l) ? (f.l.match(/\((.*?)\)/) ? " [" + f.l.match(/\((.*?)\)/)[1] + "]" : "") : ""), f.t === "area" ? 20 : f.t === "bool" ? 8 : f.t === "num" ? 9 : f.t === "date" ? 9 : 13]); }
+  cols.push(["Skladno (da/ne)", 8], ["Ukrep / opomba", 18], ["Podpis", 10]); return cols;
+}
+async function pageObrazci(v) {
+  const st = await D.list("stranke"); let sid = sessionStorage.getItem("obr_sid") || (st[0] && st[0].id);
+  v.innerHTML = `<p class="note info">Prazni obrazci za izpolnjevanje na papirju (ležeči A4). Kasneje vnos prenesete v aplikacijo. Obrazec se napolni z imenom podjetja; mesečna lista čiščenja in temperatur vsebujeta opravila oziroma naprave iz aplikacije.</p>
+  <div class="row">${st.length > 1 || isStaff() ? `<label class="f" style="margin:0;min-width:260px"><span>Stranka</span><select id="o_s">${st.map(s => `<option value="${s.id}" ${s.id === sid ? "selected" : ""}>${esc(s.naziv)}</option>`).join("")}</select></label>` : ""}<label class="f" style="margin:0"><span>Število vrstic</span><input type="number" id="o_n" value="22" min="5" max="60" style="width:100px"></label><label class="f" style="margin:0"><span>Mesec/leto (neobvezno)</span><input id="o_m" placeholder="npr. 11/2026" style="width:140px"></label></div>
+  <div class="tw"><table class="t"><tr><th>Obrazec</th><th></th></tr>
+  ${OBR_VRSTE.map(k => `<tr><td>${esc(EV[k].ime)}</td><td style="white-space:nowrap"><button class="btn sm" data-p="${k}">PDF</button> <button class="btn sm ghost sec" data-x="${k}">Excel</button></td></tr>`).join("")}
+  <tr><td>Mesečni list čiščenja (opravila iz načrta × dnevi 1–31)</td><td style="white-space:nowrap"><button class="btn sm" data-p="@ciscenje">PDF</button> <button class="btn sm ghost sec" data-x="@ciscenje">Excel</button></td></tr>
+  <tr><td>Mesečni list temperatur (naprave × dnevi 1–31)</td><td style="white-space:nowrap"><button class="btn sm" data-p="@temp">PDF</button> <button class="btn sm ghost sec" data-x="@temp">Excel</button></td></tr>
+  <tr><td>Seznam prisotnosti na usposabljanju</td><td style="white-space:nowrap"><button class="btn sm" data-p="@prisotnost">PDF</button> <button class="btn sm ghost sec" data-x="@prisotnost">Excel</button></td></tr></table></div>`;
+  if ($("#o_s")) $("#o_s").onchange = e => { sid = e.target.value; sessionStorage.setItem("obr_sid", sid); };
+  const def = async k => {
+    const s = st.find(x => x.id === sid) || { naziv: "" }, n = Math.max(5, Math.min(60, +$("#o_n").value || 22)), mes = $("#o_m").value.trim();
+    let naslov, cols, rows, glavaVrstica = "", minH = 20;
+    if (k === "@ciscenje") { const nac = (await D.list("ciscenje_nacrt", { stranka_id: sid }).catch(() => [])).filter(x => x.aktivno !== false); naslov = "Mesečni list čiščenja in razkuževanja"; cols = [["Področje – opravilo", 30], ...Array.from({ length: 31 }, (_, i) => [String(i + 1), 2.4])]; rows = (nac.length ? nac.map(x => [[x.podrocje, x.opravilo].filter(Boolean).join(": ") + (x.sredstvo ? " (" + x.sredstvo + ")" : "")]) : Array.from({ length: 12 }, () => [""])).map(r => r.concat(Array(31).fill(""))); glavaVrstica = "Oznaka: x = opravljeno, 0 = ni opravljeno ali neustrezno.   Odgovorna oseba (podpis): ________________________"; }
+    else if (k === "@temp") { const op = (await D.list("oprema", { stranka_id: sid }).catch(() => [])).filter(x => /hlad|zamrz/i.test((x.tip || "") + " " + (x.naziv || ""))); const dev = (op.length ? op.slice(0, 6).map(x => x.naziv + (x.meja_min !== undefined && x.meja_min !== "" || x.meja_max !== undefined && x.meja_max !== "" ? " (" + (x.meja_min ?? "") + " do " + (x.meja_max ?? "") + " °C)" : "")) : ["Naprava 1", "Naprava 2", "Naprava 3", "Naprava 4"]); naslov = "Mesečni list temperatur hladilnikov in zamrzovalnikov"; cols = [["Dan", 4], ...dev.flatMap(d => [[d + " – zjutraj", 9], [d + " – zvečer", 9]]).slice(0, 12), ["Podpis", 10]]; rows = Array.from({ length: 31 }, (_, i) => [String(i + 1), ...Array(cols.length - 1).fill("")]); minH = 15; glavaVrstica = "Dovoljeni razpon določi odgovorna oseba (HACCP načrt). Ob odstopanju vpišite ukrep na hrbtni strani."; }
+    else if (k === "@prisotnost") { naslov = "Seznam prisotnosti na usposabljanju"; cols = [["Št.", 4], ["Ime in priimek", 30], ["Delovno mesto", 20], ["Podpis", 25]]; rows = Array.from({ length: n }, (_, i) => [String(i + 1), "", "", ""]); glavaVrstica = "Tema: ____________________________   Datum: ______________   Izvajalec: ____________________   Trajanje: _______"; minH = 22; }
+    else { naslov = EV[k].ime; cols = obrazecStolpci(k); rows = Array.from({ length: n }, () => Array(cols.length).fill("")); if (EV[k].f.some(f => /min|max|meja/.test(f.k))) glavaVrstica = "Mejne vrednosti (določi odgovorna oseba / HACCP načrt): ________________________________"; }
+    return { naslov, cols, rows, glavaVrstica, s, mes, minH };
+  };
+  $$("[data-p]", v).forEach(b => b.onclick = async () => { const f = await def(b.dataset.p); const sum = f.cols.reduce((a, c) => a + c[1], 0);
+    dlBlob(pdfBuild({ naslov: f.naslov, stranka: f.s.naziv, plain: true, landscape: true, verzija: "1.0" }, d => { d.text(d.M, d.y, f.naslov, 14, true, "g"); d.y -= 20; d.text(d.M, d.y, "Podjetje: " + (f.s.naziv || "______________________") + "     Obrat: ______________________     Mesec/leto: " + (f.mes || "______________"), 9.5, false, "d"); d.y -= 16; if (f.glavaVrstica) { d.text(d.M, d.y, f.glavaVrstica, 8.5, false, "m"); d.y -= 14; } d.y -= 4;
+      d.table(f.cols.map(c => c[0]), f.rows, f.cols.map(c => c[1]), { size: 7.5, minH: f.minH, grid: true }); d.p("Izpolnil: ____________________   Pregledal (odgovorna oseba): ____________________   Datum pregleda: ____________", { size: 8.5, col: "m" }); }), "obrazec-" + f.naslov + ".pdf"); });
+  $$("[data-x]", v).forEach(b => b.onclick = async () => { const f = await def(b.dataset.x); downloadXlsx("obrazec-" + f.naslov + ".xlsx", [{ ime: f.naslov.slice(0, 30), glava: f.cols.map(c => c[0]), vrste: f.rows }]); });
+}
+navItem("obrazci", "Obrazci za tisk", "#/obrazci");
+route(/^\/obrazci$/, pageObrazci, "Prazni obrazci za tisk", "obrazci");

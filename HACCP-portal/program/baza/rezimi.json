@@ -1,0 +1,82 @@
+[
+ {
+  "id": "zam",
+  "naziv": "Zamrznjeno skladišče",
+  "od": -25,
+  "do": -18,
+  "predloga": "{od} do {do} °C (ne nad {do})",
+  "uporaba": "zamrznjene surovine in izdelki, brez ponovnega zamrzovanja"
+ },
+ {
+  "id": "hl0",
+  "naziv": "Hlajeno 0 do 2 °C",
+  "od": 0,
+  "do": 2,
+  "predloga": "{od} do {do} °C",
+  "uporaba": "sveže ribe, školjke, mleto meso"
+ },
+ {
+  "id": "hl4",
+  "naziv": "Hlajeno 0 do 4 °C",
+  "od": 0,
+  "do": 4,
+  "predloga": "{od} do {do} °C",
+  "uporaba": "meso, mesni izdelki, jajčne mase, pripravljene jedi, izdelki RTE"
+ },
+ {
+  "id": "hl6",
+  "naziv": "Hlajeno 2 do 6 °C",
+  "od": 2,
+  "do": 6,
+  "predloga": "{od} do {do} °C",
+  "uporaba": "surovo mleko, mlečni izdelki"
+ },
+ {
+  "id": "hl8",
+  "naziv": "Hlajeno 2 do 8 °C",
+  "od": 2,
+  "do": 8,
+  "predloga": "{od} do {do} °C",
+  "uporaba": "sadje, zelenjava, pijače, jajca"
+ },
+ {
+  "id": "sob",
+  "naziv": "Sobna temperatura (suho skladišče)",
+  "od": 10,
+  "do": 25,
+  "predloga": "{od} do {do} °C, suho",
+  "uporaba": "moka, sladkor, konzerve, suhi izdelki"
+ },
+ {
+  "id": "kuh",
+  "naziv": "Toplotna obdelava (temperatura jedra)",
+  "od": 72,
+  "do": "",
+  "predloga": "≥ {od} °C (ali enakovredna kombinacija čas/temperatura)",
+  "uporaba": "kuhanje, pečenje, pasterizacija"
+ },
+ {
+  "id": "hlaj",
+  "naziv": "Hitro hlajenje po toplotni obdelavi",
+  "od": 10,
+  "do": 60,
+  "predloga": "{do} → {od} °C v ≤ 3 h, nato ≤ 4 °C",
+  "uporaba": "pripravljene jedi, mesni izdelki"
+ },
+ {
+  "id": "vro",
+  "naziv": "Vroče vzdrževanje",
+  "od": 65,
+  "do": "",
+  "predloga": "≥ {od} °C, najdlje 2 h",
+  "uporaba": "tople jedi pred serviranjem"
+ },
+ {
+  "id": "pon",
+  "naziv": "Ponovno segrevanje",
+  "od": 72,
+  "do": "",
+  "predloga": "≥ {od} °C v jedru",
+  "uporaba": "ohlajene jedi pred porabo"
+ }
+]
